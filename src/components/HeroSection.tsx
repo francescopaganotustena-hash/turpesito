@@ -10,7 +10,7 @@ export function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${siteConfig.enableHeroAnimation ? 'hero-bg-animated' : ''}`}
         style={{ backgroundImage: `url(${heroImages.hero})` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary" />

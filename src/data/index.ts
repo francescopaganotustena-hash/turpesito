@@ -2,6 +2,7 @@ export const siteConfig = {
   name: "Gianluca Scala",
   tagline: "Voce che emoziona, performance che restano",
   subtitle: "Cantante e Musicista Professionista",
+  enableHeroAnimation: true,
   description: "Un'esperienza musicale di alto livello per matrimoni, eventi aziendali, serate private e live performance. Gianluca Scala porta sul palco anni di esperienza, una voce inconfondibile e un repertorio che spazia dal jazz al pop, dalla musica italiana ai classici internazionali.",
   bookingTitle: "Richiedi una data",
   bookingSubtitle: "Contattami per il tuo evento",
