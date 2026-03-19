@@ -26,12 +26,12 @@ export function HeroSection() {
             </span>
           </div>
 
-          <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium mb-6 tracking-tight leading-[1.05] text-accent">
+          <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium mb-6 tracking-tight leading-[1.05]">
             {firstName}
             {lastName && (
               <>
                 {' '}
-                <span>{lastName}</span>
+                <span className="text-accent">{lastName}</span>
               </>
             )}
           </h1>
