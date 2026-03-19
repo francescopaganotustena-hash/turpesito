@@ -66,6 +66,19 @@
 - Valutare pulizia dipendenze non usate.
 - Eventuale ottimizzazione SEO Open Graph (immagine/social cards reali).
 
+## Animazione hero homepage (stato attuale)
+- Richiesta: animare leggermente l'immagine di sfondo della hero in home.
+- Implementazione:
+  - Toggle config in `src/data/index.ts`: `siteConfig.enableHeroAnimation`.
+  - Classe condizionale in `src/components/HeroSection.tsx`: `hero-bg-animated`.
+  - Keyframes in `src/index.css` (`heroBackgroundDrift`) con zoom + micro-pan.
+  - Supporto accessibilita: disattivazione automatica con `prefers-reduced-motion: reduce`.
+- Tuning effettuato:
+  - prima versione molto soft -> aumentata progressivamente su richiesta.
+  - versione corrente: movimento percepibile ma ancora cinematico.
+- Rollback rapido:
+  - impostare `enableHeroAnimation: false` in `src/data/index.ts`.
+
 ## Strategia futura: area amministratore (in valutazione)
 Obiettivo:
 - Creare una pagina/admin panel protetta da username/password per modificare contenuti del sito (foto, link YouTube, descrizioni, eventi, contatti, sezioni home, ecc.).

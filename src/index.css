@@ -66,3 +66,24 @@
     background: var(--color-accent);
   }
 }
+
+@keyframes heroBackgroundDrift {
+  0% {
+    transform: scale(1.02) translate3d(-14px, -6px, 0);
+  }
+  100% {
+    transform: scale(1.1) translate3d(20px, 8px, 0);
+  }
+}
+
+.hero-bg-animated {
+  animation: heroBackgroundDrift 17s ease-in-out infinite alternate;
+  transform-origin: center;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-animated {
+    animation: none;
+  }
+}
