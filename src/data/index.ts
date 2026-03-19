@@ -1,3 +1,5 @@
+import heroMain from '../assets/hero-main.png';
+
 export const siteConfig = {
   name: "Gianluca Scala",
   tagline: "Voce che emoziona, performance che restano",
@@ -285,7 +287,7 @@ export const heroImages = {
   // https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1920&h=1080&fit=crop
   // SharePoint test link backup:
   // https://studio81srl-my.sharepoint.com/:i:/g/personal/francesco_pagano_studio81_it/IQCVZ5w833lHTbOOkBtJD776AXSapo95rexZHWK12Ohpoqg?e=pwAmZq
-  hero: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1920&h=1080&fit=crop",
+  hero: heroMain,
   biography: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&h=1200&fit=crop",
   cta: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1920&h=600&fit=crop",
 };
