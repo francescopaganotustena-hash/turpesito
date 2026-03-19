@@ -79,6 +79,18 @@
 - Rollback rapido:
   - impostare `enableHeroAnimation: false` in `src/data/index.ts`.
 
+## Gestione immagine hero (aggiornamento recente)
+- Test con link SharePoint/OneDrive fallito:
+  - il link condiviso non era un direct image URL (`403 FORBIDDEN` lato fetch server), quindi non utilizzabile come `background-image`.
+- Soluzione adottata:
+  - immagine locale fornita dall'utente: `/home/sviluppatore/Documenti/Gianluca/Turpe.png`
+  - copiata in path pubblico progetto: `public/images/Turpe.png`
+  - hero aggiornata su path locale stabile in `src/data/index.ts`:
+    - `hero: "/images/Turpe.png"`
+- Backup mantenuti in `src/data/index.ts`:
+  - vecchio Unsplash hero
+  - link SharePoint test
+
 ## Strategia futura: area amministratore (in valutazione)
 Obiettivo:
 - Creare una pagina/admin panel protetta da username/password per modificare contenuti del sito (foto, link YouTube, descrizioni, eventi, contatti, sezioni home, ecc.).
