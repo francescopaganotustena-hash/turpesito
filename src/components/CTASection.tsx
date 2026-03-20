@@ -11,10 +11,9 @@ export function CTASection({ showContactLine = true }: CTASectionProps) {
     <section className="relative py-24 overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `linear-gradient(rgba(10,10,10,0.45), rgba(10,10,10,0.55)), url(${heroImages.cta})`,
-        }}
+        style={{ backgroundImage: `url(${heroImages.cta})` }}
       />
+      <div className="absolute inset-0 bg-primary/30" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 bg-accent/20 rounded-full px-4 py-2 mb-6">
