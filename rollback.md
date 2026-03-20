@@ -7,6 +7,8 @@ Stato attuale predefinito:
 - Form contatti ("Invia una richiesta"): OFF
 - Preview musica Home ("Ultime uscite"): OFF
 - Pagina Musica (/musica): OFF
+- Pagina Video (/video): OFF
+- Preview Reel Instagram in Home: ON
 
 ---
 
@@ -51,6 +53,16 @@ Nota importante:
 - `true`: riattiva pagina Musica e collegamenti.
 - File coinvolti: `src/App.tsx`, `src/data/index.ts`, `src/components/HeroSection.tsx`, `src/pages/Home.tsx`.
 
+`VITE_ENABLE_VIDEO_PAGE`
+- `false`: nasconde voce menu Video e disattiva route `/video` (redirect a `/`).
+- `true`: riattiva pagina Video e voce menu.
+- File coinvolti: `src/App.tsx`, `src/data/index.ts`, `src/components/VideoPreview.tsx`.
+
+`VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS`
+- `false`: in Home viene nascosta la sezione "Video e Live" quando `/video` è disattivata; se `/video` è attiva, mostra fallback YouTube.
+- `true`: in Home mostra card Reel Instagram collegate al profilo; se `/video` è attiva, anche la pagina `/video` usa card Reel Instagram.
+- File coinvolti: `src/config/featureFlags.ts`, `src/components/VideoPreview.tsx`, `src/pages/Videos.tsx`, `src/data/index.ts`.
+
 ---
 
 ## 3) Configurazioni pronte all'uso (copia/incolla)
@@ -61,6 +73,8 @@ VITE_ENABLE_EVENTS=false
 VITE_ENABLE_CONTACT_FORM=false
 VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
+VITE_ENABLE_VIDEO_PAGE=false
+VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 ```
 
 ### Profilo B: solo Musica completa
@@ -69,6 +83,8 @@ VITE_ENABLE_EVENTS=false
 VITE_ENABLE_CONTACT_FORM=false
 VITE_ENABLE_HOME_MUSIC_PREVIEW=true
 VITE_ENABLE_MUSIC_PAGE=true
+VITE_ENABLE_VIDEO_PAGE=false
+VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 ```
 
 ### Profilo C: solo Eventi attivi
@@ -77,6 +93,8 @@ VITE_ENABLE_EVENTS=true
 VITE_ENABLE_CONTACT_FORM=false
 VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
+VITE_ENABLE_VIDEO_PAGE=false
+VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 ```
 
 ### Profilo D: contatti avanzati (con form) ma niente Eventi/Musica
@@ -85,6 +103,8 @@ VITE_ENABLE_EVENTS=false
 VITE_ENABLE_CONTACT_FORM=true
 VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
+VITE_ENABLE_VIDEO_PAGE=false
+VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 ```
 
 ### Profilo E: tutte le sezioni ON (assetto completo)
@@ -93,6 +113,8 @@ VITE_ENABLE_EVENTS=true
 VITE_ENABLE_CONTACT_FORM=true
 VITE_ENABLE_HOME_MUSIC_PREVIEW=true
 VITE_ENABLE_MUSIC_PAGE=true
+VITE_ENABLE_VIDEO_PAGE=true
+VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 ```
 
 ---
@@ -133,6 +155,14 @@ Se `VITE_ENABLE_CONTACT_FORM=false`:
 Se `VITE_ENABLE_HOME_MUSIC_PREVIEW=false`:
 - Home non deve mostrare sezione "Ultime uscite".
 
+Se `VITE_ENABLE_VIDEO_PAGE=false`:
+- Menu non deve mostrare "Video".
+- `/#/video` deve redirigere su Home.
+
+Se `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true`:
+- In Home deve comparire la sezione "Video e Live" con card Reel Instagram.
+- Non devono comparire iframe Instagram con UI nativa.
+
 ---
 
 ## 6) Troubleshooting
@@ -162,6 +192,8 @@ Problema: script avvio lanciato con `sh` dava errori.
 - Navigazione menu: `src/data/index.ts`
 - Home composition: `src/pages/Home.tsx`
 - CTA Hero: `src/components/HeroSection.tsx`
+- Pagina video: `src/pages/Videos.tsx`
+- Preview video home: `src/components/VideoPreview.tsx`
 - Contatti/Booking: `src/pages/Contact.tsx`
 - Esempi env: `.env.example`
 - Documentazione generale: `README.md`

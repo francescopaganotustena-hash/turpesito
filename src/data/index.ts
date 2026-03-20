@@ -1,5 +1,5 @@
 import heroMain from '../assets/hero-main.png';
-import { enableEvents, enableMusicPage } from '../config/featureFlags';
+import { enableEvents, enableMusicPage, enableVideoPage } from '../config/featureFlags';
 
 export const siteConfig = {
   name: "Gianluca Scala",
@@ -14,7 +14,7 @@ export const siteConfig = {
   location: "Milano e provincia",
   availability: "Disponibile per eventi in tutta Italia",
   social: {
-    instagram: "https://instagram.com/gianlucascala",
+    instagram: "https://www.instagram.com/giangi_sax?igsh=NXp5MWdhdnJzcmVz",
     facebook: "https://facebook.com/gianlucascala",
     youtube: "https://youtube.com/@gianlucascala",
     spotify: "https://open.spotify.com/artist/gianlucascala",
@@ -23,7 +23,7 @@ export const siteConfig = {
     { label: "Home", path: "/" },
     { label: "Biografia", path: "/biografia" },
     ...(enableMusicPage ? [{ label: "Musica", path: "/musica" }] : []),
-    { label: "Video", path: "/video" },
+    ...(enableVideoPage ? [{ label: "Video", path: "/video" }] : []),
     ...(enableEvents ? [{ label: "Eventi", path: "/eventi" }] : []),
     { label: "Galleria", path: "/galleria" },
     { label: "Booking", path: "/contatti" },
@@ -141,6 +141,41 @@ export const videos = [
     youtubeId: "dQw4w9WgXcQ",
     duration: "10:15",
     date: "Novembre 2024",
+  },
+];
+
+export const instagramReels = [
+  {
+    id: 1,
+    title: "Reel Instagram #1",
+    description: "Clip Instagram in evidenza dal profilo ufficiale.",
+    date: "Instagram",
+    url: "https://www.instagram.com/reel/DQPU9uzjI89/",
+    thumbnail: "/images/reels/reel-1.jpg",
+  },
+  {
+    id: 2,
+    title: "Reel Instagram #2",
+    description: "Clip Instagram in evidenza dal profilo ufficiale.",
+    date: "Instagram",
+    url: "https://www.instagram.com/reel/DQPU2DxjNfV/",
+    thumbnail: "/images/reels/reel-2.jpg",
+  },
+  {
+    id: 3,
+    title: "Reel Instagram #3",
+    description: "Clip Instagram in evidenza dal profilo ufficiale.",
+    date: "Instagram",
+    url: "https://www.instagram.com/reel/DSxzF0QDJXj/",
+    thumbnail: "/images/reels/reel-3.jpg",
+  },
+  {
+    id: 4,
+    title: "Reel Instagram #4",
+    description: "Clip Instagram in evidenza dal profilo ufficiale.",
+    date: "Instagram",
+    url: "https://www.instagram.com/reel/DQRW4wjjPJf/",
+    thumbnail: "/images/reels/reel-4.jpg",
   },
 ];
 

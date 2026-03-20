@@ -9,7 +9,7 @@ import { Videos } from './pages/Videos';
 import { Events } from './pages/Events';
 import { Gallery } from './pages/Gallery';
 import { Contact } from './pages/Contact';
-import { enableEvents, enableMusicPage } from './config/featureFlags';
+import { enableEvents, enableMusicPage, enableVideoPage } from './config/featureFlags';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -34,7 +34,10 @@ function App() {
               path="musica"
               element={enableMusicPage ? <Music /> : <Navigate to="/" replace />}
             />
-            <Route path="video" element={<Videos />} />
+            <Route
+              path="video"
+              element={enableVideoPage ? <Videos /> : <Navigate to="/" replace />}
+            />
             <Route
               path="eventi"
               element={enableEvents ? <Events /> : <Navigate to="/" replace />}

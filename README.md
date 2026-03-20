@@ -63,7 +63,7 @@ src/
 | Home | `/` | Hero, video preview, CTA (musica/eventi opzionali via feature flag) |
 | Biografia | `/biografia` | Storia artista, achievements con numeri |
 | Musica | `/musica` | Featured track, catalogo brani con cover (abilitabile via feature flag) |
-| Video | `/video` | Video grid con embed YouTube click-to-play |
+| Video | `/video` | Pagina opzionale (attivabile via feature flag) |
 | Eventi | `/eventi` | Eventi futuri (confermati) e passati, attivabile via feature flag |
 | Galleria | `/galleria` | Foto con filtro categoria e lightbox |
 | Contatti | `/contatti` | Booking con contatti diretti (form opzionale via feature flag) |
@@ -213,6 +213,44 @@ VITE_ENABLE_MUSIC_PAGE=true
 
 Per disattivarla di nuovo, imposta `VITE_ENABLE_MUSIC_PAGE=false` (o rimuovi la variabile).
 
+## Feature Flag Test Reel Instagram in Video (Rollback Rapido)
+
+Mostra card Reel Instagram (senza iframe) in Home e, se la pagina Video e attiva, anche in `/video`.
+
+Per attivarla:
+
+1. Crea (o aggiorna) `.env.local` nella root del progetto.
+2. Aggiungi:
+
+```bash
+VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+```
+
+3. Riavvia il dev server (`npm run dev`).
+
+Per disattivare questa modalita, imposta:
+`VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=false`.
+
+## Feature Flag Pagina Video (Rollback Rapido)
+
+La pagina `/video` e disattivata di default.
+Quando disattiva:
+- la voce "Video" sparisce dalla navigazione
+- la route `/video` fa redirect automatico a Home
+
+Per riattivarla:
+
+1. Crea (o aggiorna) `.env.local` nella root del progetto.
+2. Aggiungi:
+
+```bash
+VITE_ENABLE_VIDEO_PAGE=true
+```
+
+3. Riavvia il dev server (`npm run dev`).
+
+Per disattivarla di nuovo, imposta `VITE_ENABLE_VIDEO_PAGE=false`.
+
 ## Pubblicazione
 
 ```bash
@@ -237,7 +275,7 @@ Passi:
 
 Nota routing:
 - Il sito usa `HashRouter` per essere compatibile al 100% con GitHub Pages.
-- URL pagine: `/#/video`, `/#/galleria`, `/#/contatti` (e `/#/musica`, `/#/eventi` solo se abilitate via feature flag)
+- URL pagine: `/#/galleria`, `/#/contatti` (e `/#/musica`, `/#/eventi`, `/#/video` solo se abilitate via feature flag)
 
 ## SEO
 
