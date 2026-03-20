@@ -2,7 +2,11 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star } from 'lucide-react';
 import { siteConfig, heroImages } from '../data';
 
-export function CTASection() {
+type CTASectionProps = {
+  showContactLine?: boolean;
+};
+
+export function CTASection({ showContactLine = true }: CTASectionProps) {
   return (
     <section className="relative py-24 overflow-hidden">
       <div
@@ -16,7 +20,7 @@ export function CTASection() {
         <div className="inline-flex items-center gap-2 bg-accent/20 rounded-full px-4 py-2 mb-6">
           <Star className="w-4 h-4 text-accent" />
           <span className="text-sm text-accent font-medium">
-            Disponibile per eventi in tutta Italia
+            Disponibile per eventi a Napoli e provincia
           </span>
         </div>
 
@@ -38,9 +42,11 @@ export function CTASection() {
           <ArrowRight className="w-6 h-6" />
         </Link>
 
-        <p className="mt-6 text-text-muted text-sm">
-          {siteConfig.email} • {siteConfig.phone}
-        </p>
+        {showContactLine && (
+          <p className="mt-6 text-text-muted text-sm">
+            {siteConfig.phone}
+          </p>
+        )}
       </div>
     </section>
   );

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Music, Instagram, Facebook, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Music, Instagram, Facebook, Youtube, Phone, MapPin } from 'lucide-react';
 import { siteConfig } from '../data';
 
 export function Footer() {
@@ -70,12 +70,6 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-lg mb-4">Contatti</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-text-muted text-sm">
-                <Mail className="w-4 h-4 text-accent" />
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-accent transition-colors">
-                  {siteConfig.email}
-                </a>
-              </li>
               <li className="flex items-center gap-2 text-text-muted text-sm">
                 <Phone className="w-4 h-4 text-accent" />
                 <a href={`tel:${siteConfig.phone}`} className="hover:text-accent transition-colors">

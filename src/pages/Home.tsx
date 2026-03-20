@@ -19,7 +19,7 @@ export function Home() {
       {enableHomeMusicPreview && enableMusicPage && <MusicPreview />}
       <VideoPreview />
       {enableEvents && <EventList />}
-      <CTASection />
+      <CTASection showContactLine={false} />
     </>
   );
 }
