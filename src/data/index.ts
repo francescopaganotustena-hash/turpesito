@@ -1,6 +1,5 @@
 import heroMain from '../assets/hero-main.png';
 import bioImage from '../assets/site-photos/bio.jpg';
-import ctaImage from '../assets/site-photos/cta.jpg';
 import track1Cover from '../assets/site-photos/track-1.jpg';
 import track2Cover from '../assets/site-photos/track-2.jpg';
 import track3Cover from '../assets/site-photos/track-3.jpg';
@@ -36,10 +35,10 @@ export const siteConfig = {
   description: "Un'esperienza musicale di alto livello per matrimoni, eventi aziendali, serate private e live performance. Gianluca Scala porta sul palco anni di esperienza, una voce inconfondibile e un repertorio che spazia dal jazz al pop, dalla musica italiana ai classici internazionali.",
   bookingTitle: "Richiedi una data",
   bookingSubtitle: "Contattami per il tuo evento",
-  email: "info@gianlucascala.it",
+  email: "",
   phone: "+39 338 2147345",
   location: "Napoli e provincia",
-  availability: "Disponibile per eventi in tutta Italia",
+  availability: "Disponibile per eventi a Napoli e provincia",
   social: {
     instagram: "https://www.instagram.com/giangi_sax?igsh=NXp5MWdhdnJzcmVz",
     facebook: "https://facebook.com/gianlucascala",
@@ -310,5 +309,5 @@ export const heroImages = {
   // https://studio81srl-my.sharepoint.com/:i:/g/personal/francesco_pagano_studio81_it/IQCVZ5w833lHTbOOkBtJD776AXSapo95rexZHWK12Ohpoqg?e=pwAmZq
   hero: heroMain,
   biography: bioImage,
-  cta: ctaImage,
+  cta: heroMain,
 };

@@ -90,7 +90,7 @@ export function Contact() {
                   <li>• Rispondo a tutte le richieste entro 24 ore</li>
                   <li>• Possibile incontro preliminare per conoscersi</li>
                   <li>• Preventivo personalizzato senza impegno</li>
-                  <li>• Disponibile per eventi in tutta Italia</li>
+                  <li>• Disponibile per eventi a Napoli e provincia</li>
                 </ul>
               </div>
             </div>
