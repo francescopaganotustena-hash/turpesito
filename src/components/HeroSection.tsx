@@ -12,7 +12,7 @@ export function HeroSection() {
       {/* Background Image */}
       <div
         className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${siteConfig.enableHeroAnimation ? 'hero-bg-animated' : ''}`}
-        style={{ backgroundImage: `url(${heroImages.hero})` }}
+        style={{ backgroundImage: `url("${encodeURI(heroImages.hero)}")` }}
       >
         <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary" />
       </div>

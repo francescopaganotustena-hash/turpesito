@@ -19,7 +19,7 @@ export function Biography() {
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImages.biography})` }}
+          style={{ backgroundImage: `url("${encodeURI(heroImages.biography)}")` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/95 to-primary/70" />
         </div>
