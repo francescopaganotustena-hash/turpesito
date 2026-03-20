@@ -175,3 +175,27 @@ Provider citati:
 
 Nota Git/deploy:
 - Le modifiche su Git possono essere ereditate automaticamente dai gestori tramite GitHub Actions/pipeline deploy.
+
+## Aggiornamento operativo: script avvio/spegnimento localhost (2026-03-20)
+Problema segnalato:
+- Gli script `scripts/avvia-sito.sh` e `scripts/spegni-sito.sh` risultavano instabili in alcuni casi (PID orfani / stop incompleto).
+
+Correzione applicata:
+- `avvia-sito.sh` ora:
+  - avvia Vite con `setsid` (gruppo processo separato),
+  - usa `--strictPort`,
+  - salva in `.vite-dev.pid` i campi `PID`, `PGID`, `PORT`,
+  - attende che la porta risulti realmente in ascolto prima di confermare l'avvio.
+- `spegni-sito.sh` ora:
+  - prova prima a chiudere il gruppo processo via `PGID`,
+  - poi chiude eventuali PID residui sulla porta,
+  - esegue fallback con `kill -9` se necessario,
+  - verifica finale sulla porta per confermare stop completo.
+
+Comandi d'uso confermati:
+- `./scripts/avvia-sito.sh`
+- `./scripts/spegni-sito.sh`
+- Porta custom supportata: `./scripts/avvia-sito.sh 3000` / `./scripts/spegni-sito.sh 3000`
+
+Esito:
+- Utente ha confermato che gli script ora funzionano correttamente.
