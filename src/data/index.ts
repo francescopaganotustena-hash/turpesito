@@ -42,7 +42,6 @@ export const siteConfig = {
   availability: "Disponibile per eventi a Napoli e provincia",
   social: {
     instagram: "https://www.instagram.com/giangi_sax?igsh=NXp5MWdhdnJzcmVz",
-    facebook: "https://facebook.com/gianlucascala",
     youtube: "https://youtube.com/@gianlucascala",
     spotify: "https://open.spotify.com/artist/gianlucascala",
   },

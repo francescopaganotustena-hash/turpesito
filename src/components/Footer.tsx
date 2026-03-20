@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Music, Instagram, Facebook, Youtube, Phone, MapPin } from 'lucide-react';
+import { Music, Instagram, Youtube, Phone, MapPin } from 'lucide-react';
 import { siteConfig } from '../data';
 
 export function Footer() {
@@ -27,15 +27,6 @@ export function Footer() {
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a
-                href={siteConfig.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-text-muted hover:text-accent transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="w-5 h-5" />
               </a>
               <a
                 href={siteConfig.social.youtube}
