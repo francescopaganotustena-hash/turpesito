@@ -5,6 +5,7 @@ import { VideoPreview } from '../components/VideoPreview';
 import { EventList } from '../components/EventList';
 import { CTASection } from '../components/CTASection';
 import { siteConfig } from '../data';
+import { enableEvents, enableHomeMusicPreview, enableMusicPage } from '../config/featureFlags';
 
 export function Home() {
   return (
@@ -15,9 +16,9 @@ export function Home() {
       </Helmet>
 
       <HeroSection />
-      <MusicPreview />
+      {enableHomeMusicPreview && enableMusicPage && <MusicPreview />}
       <VideoPreview />
-      <EventList />
+      {enableEvents && <EventList />}
       <CTASection />
     </>
   );

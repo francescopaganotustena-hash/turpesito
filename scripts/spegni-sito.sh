@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+
+# Allow execution via `sh script.sh` by re-running under bash.
+if [ -z "${BASH_VERSION:-}" ]; then
+  exec bash "$0" "$@"
+fi
+
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"

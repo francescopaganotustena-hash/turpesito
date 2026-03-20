@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
+
+# Allow execution via `sh script.sh` by re-running under bash.
+if [ -z "${BASH_VERSION:-}" ]; then
+  exec bash "$0" "$@"
+fi
+
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PID_FILE="$ROOT_DIR/.vite-dev.pid"
 LOG_FILE="$ROOT_DIR/.vite-dev.log"
 PORT="${1:-5173}"
+HOST="${2:-0.0.0.0}"
 VITE_BIN="$ROOT_DIR/node_modules/.bin/vite"
 START_TIMEOUT=15
 
@@ -46,18 +53,28 @@ if ! command -v setsid >/dev/null 2>&1; then
   exit 1
 fi
 
-setsid "$VITE_BIN" --host localhost --strictPort --port "$PORT" > "$LOG_FILE" 2>&1 < /dev/null &
+setsid "$VITE_BIN" --host "$HOST" --strictPort --port "$PORT" > "$LOG_FILE" 2>&1 < /dev/null &
 NEW_PID=$!
 PGID="$(ps -o pgid= -p "$NEW_PID" | tr -d ' ' || true)"
 {
   echo "PID=$NEW_PID"
   echo "PGID=$PGID"
   echo "PORT=$PORT"
+  echo "HOST=$HOST"
 } > "$PID_FILE"
 
 for _ in $(seq 1 "$START_TIMEOUT"); do
   if is_port_listening; then
-    echo "Sito avviato su http://localhost:$PORT/ (PID $NEW_PID)"
+    LAN_IP="$(hostname -I 2>/dev/null | tr ' ' '\n' | grep -E '^10\\.0\\.0\\.[0-9]+$' | head -n1 || true)"
+    if [[ -n "$LAN_IP" ]]; then
+      echo "Sito avviato su:"
+      echo "- Locale: http://localhost:$PORT/"
+      echo "- Rete aziendale: http://$LAN_IP:$PORT/"
+    else
+      echo "Sito avviato su http://localhost:$PORT/ (PID $NEW_PID)"
+      echo "Per accesso in rete usa: http://<IP-LAN>:$PORT/"
+    fi
+    echo "Host bind: $HOST (PID $NEW_PID)"
     echo "Log: $LOG_FILE"
     exit 0
   fi

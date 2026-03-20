@@ -60,13 +60,13 @@ src/
 
 | Pagina | Percorso | Contenuto |
 |--------|----------|-----------|
-| Home | `/` | Hero, musica preview, video preview, eventi preview, CTA |
+| Home | `/` | Hero, video preview, CTA (musica/eventi opzionali via feature flag) |
 | Biografia | `/biografia` | Storia artista, achievements con numeri |
-| Musica | `/musica` | Featured track, catalogo brani con cover |
+| Musica | `/musica` | Featured track, catalogo brani con cover (abilitabile via feature flag) |
 | Video | `/video` | Video grid con embed YouTube click-to-play |
-| Eventi | `/eventi` | Eventi futuri (confermati) e passati |
+| Eventi | `/eventi` | Eventi futuri (confermati) e passati, attivabile via feature flag |
 | Galleria | `/galleria` | Foto con filtro categoria e lightbox |
-| Contatti | `/contatti` | Info contatto, social, form booking |
+| Contatti | `/contatti` | Booking con contatti diretti (form opzionale via feature flag) |
 
 ## Design System
 
@@ -86,7 +86,7 @@ src/
 - **MusicPreview/VideoPreview**: Grid responsive con hover effects
 - **EventList**: Card con badge status, date iconiche italiane
 - **GalleryGrid**: Masonry-style con lightbox, category filter
-- **ContactForm**: Validazione completa, feedback stati (loading/success/error)
+- **ContactForm**: Validazione completa, feedback stati (loading/success/error), attivabile via feature flag
 
 ## Setup e Avvio
 
@@ -137,6 +137,82 @@ heroImages: { hero, biography, cta }
 3. **Social**: Aggiornare `siteConfig.social` con link reali
 4. **Eventi**: Modificare `events` (status: "upcoming" | "past")
 
+## Feature Flag Eventi (Rollback Rapido)
+
+La sezione Eventi e disattivata di default e rimossa da:
+- menu di navigazione
+- homepage (preview eventi)
+- pagina `/eventi` (redirect automatico a Home quando disattiva)
+
+Per riattivarla rapidamente:
+
+1. Crea un file `.env.local` nella root del progetto.
+2. Aggiungi:
+
+```bash
+VITE_ENABLE_EVENTS=true
+```
+
+3. Riavvia il dev server (`npm run dev`).
+
+Per disattivarla di nuovo, imposta `VITE_ENABLE_EVENTS=false` (o rimuovi la variabile).
+
+## Feature Flag Form Contatti (Rollback Rapido)
+
+La sezione "Invia una richiesta" in `/contatti` e disattivata di default.
+La pagina mantiene solo Booking con contatti diretti (email, telefono, zona, social).
+
+Per riattivare il form:
+
+1. Crea (o aggiorna) `.env.local` nella root del progetto.
+2. Aggiungi:
+
+```bash
+VITE_ENABLE_CONTACT_FORM=true
+```
+
+3. Riavvia il dev server (`npm run dev`).
+
+Per nasconderlo di nuovo, imposta `VITE_ENABLE_CONTACT_FORM=false` (o rimuovi la variabile).
+
+## Feature Flag Music Preview Home (Rollback Rapido)
+
+La sezione "Ultime uscite" in Home e disattivata di default.
+
+Per riattivarla:
+
+1. Crea (o aggiorna) `.env.local` nella root del progetto.
+2. Aggiungi:
+
+```bash
+VITE_ENABLE_HOME_MUSIC_PREVIEW=true
+```
+
+3. Riavvia il dev server (`npm run dev`).
+
+Per nasconderla di nuovo, imposta `VITE_ENABLE_HOME_MUSIC_PREVIEW=false` (o rimuovi la variabile).
+
+## Feature Flag Pagina Musica (Rollback Rapido)
+
+La pagina `/musica` e disattivata di default.
+Quando disattiva:
+- la voce "Musica" sparisce dalla navigazione
+- la route `/musica` fa redirect automatico a Home
+- i pulsanti Home che puntano a Musica vengono nascosti
+
+Per riattivarla:
+
+1. Crea (o aggiorna) `.env.local` nella root del progetto.
+2. Aggiungi:
+
+```bash
+VITE_ENABLE_MUSIC_PAGE=true
+```
+
+3. Riavvia il dev server (`npm run dev`).
+
+Per disattivarla di nuovo, imposta `VITE_ENABLE_MUSIC_PAGE=false` (o rimuovi la variabile).
+
 ## Pubblicazione
 
 ```bash
@@ -161,7 +237,7 @@ Passi:
 
 Nota routing:
 - Il sito usa `HashRouter` per essere compatibile al 100% con GitHub Pages.
-- URL pagine: `/#/musica`, `/#/eventi`, `/#/contatti`, ecc.
+- URL pagine: `/#/video`, `/#/galleria`, `/#/contatti` (e `/#/musica`, `/#/eventi` solo se abilitate via feature flag)
 
 ## SEO
 

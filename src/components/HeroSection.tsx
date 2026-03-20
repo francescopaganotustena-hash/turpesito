@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Play, ArrowRight, Mic } from 'lucide-react';
 import { siteConfig, heroImages } from '../data';
+import { enableMusicPage } from '../config/featureFlags';
 
 export function HeroSection() {
   const [firstName, ...rest] = siteConfig.name.split(' ');
@@ -45,13 +46,15 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/musica"
-              className="inline-flex items-center gap-2 bg-accent text-primary px-8 py-4 text-lg font-semibold rounded hover:bg-accent/90 transition-all hover:scale-105"
-            >
-              <Play className="w-5 h-5" />
-              Ascolta ora
-            </Link>
+            {enableMusicPage && (
+              <Link
+                to="/musica"
+                className="inline-flex items-center gap-2 bg-accent text-primary px-8 py-4 text-lg font-semibold rounded hover:bg-accent/90 transition-all hover:scale-105"
+              >
+                <Play className="w-5 h-5" />
+                Ascolta ora
+              </Link>
+            )}
             <Link
               to="/contatti"
               className="inline-flex items-center gap-2 border-2 border-text text-text px-8 py-4 text-lg font-semibold rounded hover:bg-text hover:text-primary transition-all"

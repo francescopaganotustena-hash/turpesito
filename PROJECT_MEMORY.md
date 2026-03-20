@@ -199,3 +199,52 @@ Comandi d'uso confermati:
 
 Esito:
 - Utente ha confermato che gli script ora funzionano correttamente.
+
+## Aggiornamento funzionale recente (2026-03-20): strategia rollback per sezioni sito
+Obiettivo operativo richiesto:
+- Rimuovere alcune sezioni/pagine dal sito pubblico, mantenendo la possibilita di riattivarle rapidamente.
+
+Approccio adottato:
+- Introduzione feature flags centralizzate in:
+  - `src/config/featureFlags.ts`
+- Ogni area disattivata e governata da una variabile `VITE_*`.
+- Stato di default attuale: tutte le sezioni richieste sono **OFF**.
+
+Feature flags attive nel progetto:
+- `VITE_ENABLE_EVENTS=false`
+  - Effetto: voce menu Eventi nascosta, preview eventi home nascosta, route `/eventi` redirect a `/`.
+- `VITE_ENABLE_CONTACT_FORM=false`
+  - Effetto: in `/contatti` e nascosta la sezione "Invia una richiesta"; resta solo Booking con contatti diretti.
+- `VITE_ENABLE_HOME_MUSIC_PREVIEW=false`
+  - Effetto: nascosta la sezione "Ultime uscite" in Home.
+- `VITE_ENABLE_MUSIC_PAGE=false`
+  - Effetto: pagina `/musica` disattivata (redirect `/`), voce menu Musica nascosta, CTA hero verso Musica nascosta.
+
+File principali coinvolti dalle disattivazioni:
+- Routing e redirect:
+  - `src/App.tsx`
+- Navigazione:
+  - `src/data/index.ts`
+- Home:
+  - `src/pages/Home.tsx`
+  - `src/components/HeroSection.tsx`
+- Contatti:
+  - `src/pages/Contact.tsx`
+- Config rollback:
+  - `src/config/featureFlags.ts`
+  - `.env.example`
+  - `README.md`
+
+UI contatti (aggiornamento aggiuntivo):
+- In assenza form (`VITE_ENABLE_CONTACT_FORM=false`) il blocco Booking e stato centrato in pagina (titolo, testo, contatti, social, info box).
+
+Script dev/LAN (aggiornamento aggiuntivo):
+- `scripts/avvia-sito.sh` aggiornato per:
+  - bind rete con host configurabile (default `0.0.0.0`),
+  - uso in rete LAN aziendale (es. `10.0.0.x`),
+  - compatibilita con esecuzione tramite `sh` (auto-rilancio sotto bash).
+- `scripts/spegni-sito.sh` aggiornato con stessa compatibilita `sh` -> bash.
+
+Documento operativo dedicato:
+- Creato `rollback.md` (root progetto) per gestione semplice, guidata e dettagliata delle riattivazioni future.
+- Creato script `scripts/profilo-rollback.sh` per applicare profili `.env.local` in un comando (con `list` e `--dry-run`).

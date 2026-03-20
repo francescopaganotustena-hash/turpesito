@@ -3,8 +3,11 @@ import { Mail, Phone, MapPin, Instagram, Facebook, Youtube } from 'lucide-react'
 import { ContactForm } from '../components/ContactForm';
 import { siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
+import { enableContactForm } from '../config/featureFlags';
 
 export function Contact() {
+  const isCenteredLayout = !enableContactForm;
+
   return (
     <>
       <Helmet>
@@ -14,21 +17,22 @@ export function Contact() {
 
       <div className="pt-32 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className={`grid grid-cols-1 ${enableContactForm ? 'lg:grid-cols-2' : ''} gap-16`}>
             {/* Contact Info */}
-            <div>
+            <div className={isCenteredLayout ? 'max-w-3xl mx-auto w-full text-center' : ''}>
               <SectionTitle
                 title="Booking"
                 subtitle="Parliamo del tuo evento"
+                centered={isCenteredLayout}
               />
               
-              <p className="text-text/80 mb-10 max-w-lg mx-auto text-center md:text-left">
+              <p className={`text-text/80 mb-10 max-w-lg mx-auto ${isCenteredLayout ? 'text-center' : 'text-center md:text-left'}`}>
                 Ogni evento è unico. Raccontami la tua idea e creiamo insieme 
                 un'esperienza musicale che renderà la tua serata indimenticabile.
               </p>
 
               <div className="space-y-6 mb-10">
-                <div className="flex items-start gap-4">
+                <div className={`flex gap-4 ${isCenteredLayout ? 'items-center justify-center text-left' : 'items-start'}`}>
                   <div className="bg-secondary p-3 rounded-lg">
                     <Mail className="w-5 h-5 text-accent" />
                   </div>
@@ -43,7 +47,7 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className={`flex gap-4 ${isCenteredLayout ? 'items-center justify-center text-left' : 'items-start'}`}>
                   <div className="bg-secondary p-3 rounded-lg">
                     <Phone className="w-5 h-5 text-accent" />
                   </div>
@@ -58,7 +62,7 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className={`flex gap-4 ${isCenteredLayout ? 'items-center justify-center text-left' : 'items-start'}`}>
                   <div className="bg-secondary p-3 rounded-lg">
                     <MapPin className="w-5 h-5 text-accent" />
                   </div>
@@ -72,7 +76,7 @@ export function Contact() {
               {/* Social Links */}
               <div>
                 <p className="text-sm text-text-muted mb-4">Seguimi su</p>
-                <div className="flex gap-4">
+                <div className={`flex gap-4 ${isCenteredLayout ? 'justify-center' : ''}`}>
                   <a
                     href={siteConfig.social.instagram}
                     target="_blank"
@@ -104,7 +108,7 @@ export function Contact() {
               </div>
 
               {/* Info Box */}
-              <div className="mt-10 bg-accent/10 border border-accent/20 rounded-lg p-6">
+              <div className={`mt-10 bg-accent/10 border border-accent/20 rounded-lg p-6 ${isCenteredLayout ? 'max-w-2xl mx-auto text-center' : ''}`}>
                 <h4 className="font-heading text-lg mb-2">Informazioni importanti</h4>
                 <ul className="text-sm text-text/70 space-y-2">
                   <li>• Rispondo a tutte le richieste entro 24 ore</li>
@@ -115,11 +119,13 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Contact Form */}
-            <div className="bg-secondary rounded-xl p-8 lg:p-10">
-              <h3 className="font-heading text-2xl mb-6">Invia una richiesta</h3>
-              <ContactForm />
-            </div>
+            {/* Contact Form (feature-flagged for quick rollback) */}
+            {enableContactForm && (
+              <div className="bg-secondary rounded-xl p-8 lg:p-10">
+                <h3 className="font-heading text-2xl mb-6">Invia una richiesta</h3>
+                <ContactForm />
+              </div>
+            )}
           </div>
         </div>
       </div>

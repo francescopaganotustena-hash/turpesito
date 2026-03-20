@@ -1,4 +1,5 @@
 import heroMain from '../assets/hero-main.png';
+import { enableEvents, enableMusicPage } from '../config/featureFlags';
 
 export const siteConfig = {
   name: "Gianluca Scala",
@@ -21,9 +22,9 @@ export const siteConfig = {
   navigation: [
     { label: "Home", path: "/" },
     { label: "Biografia", path: "/biografia" },
-    { label: "Musica", path: "/musica" },
+    ...(enableMusicPage ? [{ label: "Musica", path: "/musica" }] : []),
     { label: "Video", path: "/video" },
-    { label: "Eventi", path: "/eventi" },
+    ...(enableEvents ? [{ label: "Eventi", path: "/eventi" }] : []),
     { label: "Galleria", path: "/galleria" },
     { label: "Booking", path: "/contatti" },
   ],
