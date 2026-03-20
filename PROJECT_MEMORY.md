@@ -91,6 +91,33 @@
   - vecchio Unsplash hero
   - link SharePoint test
 
+## Aggiornamento finale hero (stato definitivo corrente)
+- Dopo alcuni test, e stato adottato un approccio definitivo e robusto:
+  - file locale in repository: `src/assets/hero-main.png`
+  - import in `src/data/index.ts`:
+    - `import heroMain from '../assets/hero-main.png';`
+    - `hero: heroMain`
+- Questo evita problemi di:
+  - URL esterni non affidabili
+  - path errati su GitHub Pages
+  - accessi bloccati da provider esterni (OneDrive/SharePoint).
+
+## Cronologia recente da ricordare
+- Sono stati fatti test intermedi con:
+  - URL SharePoint (non utilizzabile come direct image URL)
+  - path `public/images/Turpe.png`
+  - fix con `import.meta.env.BASE_URL` (valido ma poi superato da asset importato).
+- Stato corrente da mantenere:
+  - hero locale importata da `src/assets/hero-main.png`.
+
+## Nota operativa Git (molto importante)
+- In questa macchina il push SSH su `origin` fallisce periodicamente:
+  - errore: `Permission denied to deploy key`.
+- Quando succede:
+  - usare push HTTPS con PAT temporaneo.
+- Best practice futura:
+  - configurare in modo stabile l'autenticazione Git (HTTPS + credential manager o SSH key con write access) per evitare blocchi ricorrenti.
+
 ## Strategia futura: area amministratore (in valutazione)
 Obiettivo:
 - Creare una pagina/admin panel protetta da username/password per modificare contenuti del sito (foto, link YouTube, descrizioni, eventi, contatti, sezioni home, ecc.).
