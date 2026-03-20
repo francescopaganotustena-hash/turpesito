@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local runtime/env files
+.vite-dev.pid
+.env.local
+.env.local.bak.*
