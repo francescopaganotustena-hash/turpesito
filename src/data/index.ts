@@ -13,7 +13,7 @@ import reel1 from '../assets/site-photos/reel-1.jpg';
 import reel2 from '../assets/site-photos/reel-2.jpg';
 import reel3 from '../assets/site-photos/reel-3.jpg';
 import reel4 from '../assets/site-photos/reel-4.jpg';
-import ctaMatrimonio3 from '../assets/gallery/Matrimonio/WhatsApp Image 2026-03-19 at 23.53.45 (1).jpeg';
+import ctaCustom from '../assets/gallery/Backstage/WhatsApp Image 2026-03-20 at 00.03.37 (5).jpeg';
 import { enableEvents, enableMusicPage, enableVideoPage } from '../config/featureFlags';
 
 const galleryModules = import.meta.glob('../assets/gallery/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}', {
@@ -310,5 +310,5 @@ export const heroImages = {
   // https://studio81srl-my.sharepoint.com/:i:/g/personal/francesco_pagano_studio81_it/IQCVZ5w833lHTbOOkBtJD776AXSapo95rexZHWK12Ohpoqg?e=pwAmZq
   hero: heroMain,
   biography: bioImage,
-  cta: ctaMatrimonio3,
+  cta: ctaCustom,
 };
