@@ -35,7 +35,7 @@ export function GalleryGrid() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle
           title="Galleria"
-          subtitle="Momenti dal vivo, backstage e ritratti"
+          subtitle="Momenti dal vivo e backstage"
           centered
         />
 

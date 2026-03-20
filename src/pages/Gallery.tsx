@@ -8,7 +8,7 @@ export function Gallery() {
     <>
       <Helmet>
         <title>Galleria | {siteConfig.name}</title>
-        <meta name="description" content={`Galleria fotografica di ${siteConfig.name}. Live performance, backstage e ritratti.`} />
+        <meta name="description" content={`Galleria fotografica di ${siteConfig.name}. Live performance e backstage.`} />
       </Helmet>
 
       <div className="pt-28">

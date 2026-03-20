@@ -1,9 +1,32 @@
 import heroMain from '../assets/hero-main.png';
-import reel1 from '../assets/reels/reel-1.jpg';
-import reel2 from '../assets/reels/reel-2.jpg';
-import reel3 from '../assets/reels/reel-3.jpg';
-import reel4 from '../assets/reels/reel-4.jpg';
+import bioImage from '../assets/site-photos/bio.jpg';
+import ctaImage from '../assets/site-photos/cta.jpg';
+import track1Cover from '../assets/site-photos/track-1.jpg';
+import track2Cover from '../assets/site-photos/track-2.jpg';
+import track3Cover from '../assets/site-photos/track-3.jpg';
+import track4Cover from '../assets/site-photos/track-4.jpg';
+import track5Cover from '../assets/site-photos/track-5.jpg';
+import video1Thumb from '../assets/site-photos/video-1.jpg';
+import video2Thumb from '../assets/site-photos/video-2.jpg';
+import video3Thumb from '../assets/site-photos/video-3.jpg';
+import video4Thumb from '../assets/site-photos/video-4.jpg';
+import reel1 from '../assets/site-photos/reel-1.jpg';
+import reel2 from '../assets/site-photos/reel-2.jpg';
+import reel3 from '../assets/site-photos/reel-3.jpg';
+import reel4 from '../assets/site-photos/reel-4.jpg';
 import { enableEvents, enableMusicPage, enableVideoPage } from '../config/featureFlags';
+
+const galleryModules = import.meta.glob('../assets/gallery/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}', {
+  eager: true,
+  import: 'default',
+}) as Record<string, string>;
+
+const mapGalleryCategory = (path: string): string => {
+  const normalized = path.toLowerCase();
+  if (normalized.includes('/live-performance/')) return 'Live Performance';
+  if (normalized.includes('/matrimonio/')) return 'Matrimonio';
+  return 'Backstage';
+};
 
 export const siteConfig = {
   name: "Gianluca Scala",
@@ -59,7 +82,7 @@ export const tracks = [
     duration: "3:45",
     category: "Singolo",
     year: 2024,
-    cover: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400&h=400&fit=crop",
+    cover: track1Cover,
     spotifyUrl: "https://open.spotify.com",
     description: "Un brano originale che racconta il calore delle serate d'estate, l'amore e la bellezza dei momenti condivisi.",
   },
@@ -70,7 +93,7 @@ export const tracks = [
     duration: "4:12",
     category: "Singolo",
     year: 2023,
-    cover: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop",
+    cover: track2Cover,
     spotifyUrl: "https://open.spotify.com",
     description: "Una ballad emotiva che esplora i sentimenti e le emozioni più profonde.",
   },
@@ -81,7 +104,7 @@ export const tracks = [
     duration: "3:58",
     category: "Album",
     year: 2023,
-    cover: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400&h=400&fit=crop",
+    cover: track3Cover,
     spotifyUrl: "https://open.spotify.com",
     description: "Dal album 'Emozioni', questo brano unisce melodia classica e arrangiamenti moderni.",
   },
@@ -92,7 +115,7 @@ export const tracks = [
     duration: "4:30",
     category: "Singolo",
     year: 2022,
-    cover: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=400&h=400&fit=crop",
+    cover: track4Cover,
     spotifyUrl: "https://open.spotify.com",
     description: "Un pezzo intenso che parla di ricordi, perdita e speranza.",
   },
@@ -103,7 +126,7 @@ export const tracks = [
     duration: "3:22",
     category: "Singolo",
     year: 2022,
-    cover: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&h=400&fit=crop",
+    cover: track5Cover,
     spotifyUrl: "https://open.spotify.com",
     description: "Un brano uptempo perfetto per chiudere le serate con energia positiva.",
   },
@@ -114,7 +137,7 @@ export const videos = [
     id: 1,
     title: "Live at Teatro Manzoni",
     description: "Esibizione live completa con repertorio classico italiano. Un viaggio emozionale attraverso i più bei brani della canzone d'autore.",
-    thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=450&fit=crop",
+    thumbnail: video1Thumb,
     youtubeId: "dQw4w9WgXcQ",
     duration: "12:34",
     date: "Dicembre 2024",
@@ -123,7 +146,7 @@ export const videos = [
     id: 2,
     title: "Wedding Live - Villa Melzi",
     description: "Momenti dal matrimonio di Sara e Marco. Musica e emozioni in una location da sogno sul Lago di Como.",
-    thumbnail: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=450&fit=crop",
+    thumbnail: video2Thumb,
     youtubeId: "dQw4w9WgXcQ",
     duration: "8:45",
     date: "Settembre 2024",
@@ -132,7 +155,7 @@ export const videos = [
     id: 3,
     title: "Session Acustica - Barefoot",
     description: "Versioni acustiche dei brani più amati, registrate in un'atmosfera intima e autentica.",
-    thumbnail: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&h=450&fit=crop",
+    thumbnail: video3Thumb,
     youtubeId: "dQw4w9WgXcQ",
     duration: "15:20",
     date: "Luglio 2024",
@@ -141,7 +164,7 @@ export const videos = [
     id: 4,
     title: "Corporate Event - Milano",
     description: "Performance per evento aziendale di alto profilo. Eleganza e professionalità per una serata indimenticabile.",
-    thumbnail: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=450&fit=crop",
+    thumbnail: video4Thumb,
     youtubeId: "dQw4w9WgXcQ",
     duration: "10:15",
     date: "Novembre 2024",
@@ -252,64 +275,22 @@ export const events = [
   },
 ];
 
-export const gallery = [
-  {
-    id: 1,
-    title: "Live al tramonto",
-    category: "Live Performance",
-    src: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=800&h=600&fit=crop",
-    alt: "Gianluca Scala durante esibizione live al tramonto",
-  },
-  {
-    id: 2,
-    title: "Backstage",
-    category: "Backstage",
-    src: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=600&fit=crop",
-    alt: "Momento di pausa prima dello show",
-  },
-  {
-    id: 3,
-    title: "Matrimonio Villa Melzi",
-    category: "Matrimonio",
-    src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
-    alt: "Esecuzione durante cerimonia nuziale",
-  },
-  {
-    id: 4,
-    title: "Jazz Club Milano",
-    category: "Live Performance",
-    src: "https://images.unsplash.com/photo-1415201364774-f6f0bb35f28f?w=800&h=600&fit=crop",
-    alt: "Performance in jazz club con trio",
-  },
-  {
-    id: 5,
-    title: "Corporate Event",
-    category: "Evento Aziendale",
-    src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop",
-    alt: "Elegante esibizione per evento aziendale",
-  },
-  {
-    id: 6,
-    title: "Session Fotografica",
-    category: "Portrait",
-    src: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&h=600&fit=crop",
-    alt: "Portrait professionale dell'artista",
-  },
-  {
-    id: 7,
-    title: "Pianobar",
-    category: "Live Performance",
-    src: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=600&fit=crop",
-    alt: "Atmosfera intima del pianobar",
-  },
-  {
-    id: 8,
-    title: "Acustica Estate",
-    category: "Live Performance",
-    src: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800&h=600&fit=crop",
-    alt: "Session acustica all'aperto",
-  },
-];
+const galleryPathEntries = Object.entries(galleryModules).sort(([a], [b]) => a.localeCompare(b));
+const galleryCategoryCounters: Record<string, number> = {};
+
+export const gallery = galleryPathEntries.map(([path, src], index) => {
+  const category = mapGalleryCategory(path);
+  galleryCategoryCounters[category] = (galleryCategoryCounters[category] ?? 0) + 1;
+  const progressive = galleryCategoryCounters[category];
+
+  return {
+    id: index + 1,
+    title: `${category} ${progressive}`,
+    category,
+    src,
+    alt: `${category} - scatto ${progressive}`,
+  };
+});
 
 export const eventTypes = [
   "Matrimonio",
@@ -328,6 +309,6 @@ export const heroImages = {
   // SharePoint test link backup:
   // https://studio81srl-my.sharepoint.com/:i:/g/personal/francesco_pagano_studio81_it/IQCVZ5w833lHTbOOkBtJD776AXSapo95rexZHWK12Ohpoqg?e=pwAmZq
   hero: heroMain,
-  biography: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&h=1200&fit=crop",
-  cta: "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1920&h=600&fit=crop",
+  biography: bioImage,
+  cta: ctaImage,
 };
