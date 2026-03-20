@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Mail, Phone, MapPin, Instagram, Facebook, Youtube } from 'lucide-react';
+import { Phone, MapPin, Instagram, Youtube } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
 import { siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
@@ -32,21 +32,6 @@ export function Contact() {
               </p>
 
               <div className="space-y-6 mb-10">
-                <div className={`flex gap-4 ${isCenteredLayout ? 'items-center justify-center text-left' : 'items-start'}`}>
-                  <div className="bg-secondary p-3 rounded-lg">
-                    <Mail className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-text-muted mb-1">Email</p>
-                    <a
-                      href={`mailto:${siteConfig.email}`}
-                      className="text-lg hover:text-accent transition-colors"
-                    >
-                      {siteConfig.email}
-                    </a>
-                  </div>
-                </div>
-
                 <div className={`flex gap-4 ${isCenteredLayout ? 'items-center justify-center text-left' : 'items-start'}`}>
                   <div className="bg-secondary p-3 rounded-lg">
                     <Phone className="w-5 h-5 text-accent" />
@@ -85,15 +70,6 @@ export function Contact() {
                     aria-label="Instagram"
                   >
                     <Instagram className="w-5 h-5 text-accent" />
-                  </a>
-                  <a
-                    href={siteConfig.social.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-secondary p-3 rounded-lg hover:bg-accent/10 transition-colors"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="w-5 h-5 text-accent" />
                   </a>
                   <a
                     href={siteConfig.social.youtube}

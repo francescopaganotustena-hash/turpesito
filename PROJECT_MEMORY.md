@@ -248,3 +248,49 @@ Script dev/LAN (aggiornamento aggiuntivo):
 Documento operativo dedicato:
 - Creato `rollback.md` (root progetto) per gestione semplice, guidata e dettagliata delle riattivazioni future.
 - Creato script `scripts/profilo-rollback.sh` per applicare profili `.env.local` in un comando (con `list` e `--dry-run`).
+
+## Aggiornamento contenuti visual (2026-03-20)
+Richiesta utente:
+- sostituire le immagini del sito con foto reali dalla cartella locale:
+  - `/home/sviluppatore/Documenti/Turpe`
+
+Implementazione:
+- create cartelle asset locali nel progetto:
+  - `src/assets/site-photos/` (hero/bio/cta, cover tracce, thumbs video, reel)
+  - `src/assets/gallery/Backstage`
+  - `src/assets/gallery/Live-Performance`
+  - `src/assets/gallery/Matrimonio`
+- tutte le immagini principali ora sono embedd tramite import asset in `src/data/index.ts`.
+
+Dettaglio galleria:
+- prima: galleria con 8 immagini curate manualmente.
+- ora: galleria generata automaticamente da **tutte** le foto presenti in `src/assets/gallery/**`.
+- conteggio sorgente importata:
+  - Backstage: 61 file
+  - Live-Performance: 20 file
+  - Matrimonio: 15 file
+  - Totale: 96 file
+- costruzione runtime:
+  - uso `import.meta.glob(..., { eager: true, import: 'default' })`
+  - mapping categoria da path cartella:
+    - `Live-Performance` -> `Live Performance`
+    - `Matrimonio` -> `Matrimonio`
+    - altrimenti -> `Backstage`
+
+Nota tecnica build:
+- in output `dist/assets` puo comparire un numero leggermente inferiore di file WhatsApp con naming originale per deduplica asset del bundler.
+- verifica effettuata: asset fotografici serviti correttamente in preview locale (HTTP 200 su file campione).
+
+## Aggiornamento area Video/Home (2026-03-20)
+- pagina `/video` disattivata via feature flag con rollback:
+  - `VITE_ENABLE_VIDEO_PAGE=false` default.
+- sezione Home "Video e Live" mantenuta attiva con card Reel Instagram (senza iframe nativo Instagram, per evitare UI forzata).
+- fix GitHub Pages:
+  - thumbnail reel ora in asset bundle (import da `src/assets`), non path statico fragile.
+
+## Aggiornamento contatti Booking (2026-03-20)
+- in pagina `Booking e Contatti`:
+  - rimossi blocco email e icona/link Facebook.
+- aggiornati dati contatto globali in `siteConfig`:
+  - telefono: `+39 338 2147345`
+  - zona: `Napoli e provincia`

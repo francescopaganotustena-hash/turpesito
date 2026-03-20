@@ -37,8 +37,8 @@ export const siteConfig = {
   bookingTitle: "Richiedi una data",
   bookingSubtitle: "Contattami per il tuo evento",
   email: "info@gianlucascala.it",
-  phone: "+39 333 1234567",
-  location: "Milano e provincia",
+  phone: "+39 338 2147345",
+  location: "Napoli e provincia",
   availability: "Disponibile per eventi in tutta Italia",
   social: {
     instagram: "https://www.instagram.com/giangi_sax?igsh=NXp5MWdhdnJzcmVz",
