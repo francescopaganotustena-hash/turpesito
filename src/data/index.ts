@@ -1,4 +1,8 @@
 import heroMain from '../assets/hero-main.png';
+import reel1 from '../assets/reels/reel-1.jpg';
+import reel2 from '../assets/reels/reel-2.jpg';
+import reel3 from '../assets/reels/reel-3.jpg';
+import reel4 from '../assets/reels/reel-4.jpg';
 import { enableEvents, enableMusicPage, enableVideoPage } from '../config/featureFlags';
 
 export const siteConfig = {
@@ -151,7 +155,7 @@ export const instagramReels = [
     description: "Clip Instagram in evidenza dal profilo ufficiale.",
     date: "Instagram",
     url: "https://www.instagram.com/reel/DQPU9uzjI89/",
-    thumbnail: "/images/reels/reel-1.jpg",
+    thumbnail: reel1,
   },
   {
     id: 2,
@@ -159,7 +163,7 @@ export const instagramReels = [
     description: "Clip Instagram in evidenza dal profilo ufficiale.",
     date: "Instagram",
     url: "https://www.instagram.com/reel/DQPU2DxjNfV/",
-    thumbnail: "/images/reels/reel-2.jpg",
+    thumbnail: reel2,
   },
   {
     id: 3,
@@ -167,7 +171,7 @@ export const instagramReels = [
     description: "Clip Instagram in evidenza dal profilo ufficiale.",
     date: "Instagram",
     url: "https://www.instagram.com/reel/DSxzF0QDJXj/",
-    thumbnail: "/images/reels/reel-3.jpg",
+    thumbnail: reel3,
   },
   {
     id: 4,
@@ -175,7 +179,7 @@ export const instagramReels = [
     description: "Clip Instagram in evidenza dal profilo ufficiale.",
     date: "Instagram",
     url: "https://www.instagram.com/reel/DQRW4wjjPJf/",
-    thumbnail: "/images/reels/reel-4.jpg",
+    thumbnail: reel4,
   },
 ];
 
