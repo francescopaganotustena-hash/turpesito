@@ -19,7 +19,7 @@ export function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-        <div className="text-center">
+        <div className="relative min-h-[68vh] text-center">
           <div className="inline-flex items-center gap-2 bg-accent/10 border border-accent/30 rounded-full px-4 py-2 mb-8">
             <Mic className="w-4 h-4 text-accent" />
             <span className="text-sm text-accent font-medium tracking-wide">
@@ -45,7 +45,7 @@ export function HeroSection() {
             {siteConfig.description.split('.')[0]}.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="absolute bottom-[-4.5rem] sm:bottom-[-5rem] left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-4 justify-center w-full px-4">
             {enableMusicPage && (
               <Link
                 to="/musica"
@@ -57,7 +57,7 @@ export function HeroSection() {
             )}
             <Link
               to="/contatti"
-              className="inline-flex items-center gap-2 border-2 border-text text-text px-8 py-4 text-lg font-semibold rounded hover:bg-text hover:text-primary transition-all"
+              className="inline-flex items-center justify-center gap-2 border-2 border-text text-text px-8 py-4 text-lg font-semibold rounded hover:bg-text hover:text-primary transition-all"
             >
               Richiedi una data
               <ArrowRight className="w-5 h-5" />
