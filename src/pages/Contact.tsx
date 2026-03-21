@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Phone, MapPin, Instagram } from 'lucide-react';
+import { Phone, MapPin, Instagram, MessageCircle } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
 import { siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
@@ -7,11 +7,13 @@ import { enableContactForm } from '../config/featureFlags';
 
 export function Contact() {
   const isCenteredLayout = !enableContactForm;
+  const whatsappNumber = siteConfig.phone.replace(/\D/g, '');
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
   return (
     <>
       <Helmet>
-        <title>Booking e Contatti | {siteConfig.name}</title>
+        <title>Contatti | {siteConfig.name}</title>
         <meta name="description" content={`Contatta ${siteConfig.name} per richiedere un preventivo per il tuo evento. Matrimoni, serate private, eventi aziendali.`} />
       </Helmet>
 
@@ -21,7 +23,7 @@ export function Contact() {
             {/* Contact Info */}
             <div className={isCenteredLayout ? 'max-w-3xl mx-auto w-full text-center' : ''}>
               <SectionTitle
-                title="Booking"
+                title="Contatti"
                 subtitle="Parliamo del tuo evento"
                 centered={isCenteredLayout}
               />
@@ -40,9 +42,27 @@ export function Contact() {
                     <p className="text-sm text-text-muted mb-1">Telefono</p>
                     <a
                       href={`tel:${siteConfig.phone}`}
-                      className="text-lg hover:text-accent transition-colors"
+                      className="block text-lg hover:text-accent transition-colors"
                     >
                       {siteConfig.phone}
+                    </a>
+                  </div>
+                </div>
+
+                <div className={`flex gap-4 ${isCenteredLayout ? 'items-center justify-center text-left' : 'items-start'}`}>
+                  <div className="bg-secondary p-3 rounded-lg">
+                    <MessageCircle className="w-5 h-5 text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-text-muted mb-1">WhatsApp</p>
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-lg hover:text-accent transition-colors"
+                      aria-label="Contattami su WhatsApp"
+                    >
+                      Contattami su WhatsApp
                     </a>
                   </div>
                 </div>

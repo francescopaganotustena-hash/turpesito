@@ -38,20 +38,17 @@ export function Navbar() {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-sm font-medium tracking-wide transition-colors hover:text-accent ${
-                  location.pathname === item.path ? 'text-accent' : 'text-text'
-                }`}
+                className={
+                  item.path === '/contatti'
+                    ? 'bg-accent text-primary px-5 py-2 text-sm font-semibold rounded hover:bg-accent/90 transition-colors'
+                    : `text-sm font-medium tracking-wide transition-colors hover:text-accent ${
+                        location.pathname === item.path ? 'text-accent' : 'text-text'
+                      }`
+                }
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/contatti"
-              onClick={() => setIsOpen(false)}
-              className="bg-accent text-primary px-5 py-2 text-sm font-semibold rounded hover:bg-accent/90 transition-colors"
-            >
-              Contattami
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -79,20 +76,17 @@ export function Navbar() {
                 key={item.path}
                 to={item.path}
                 onClick={() => setIsOpen(false)}
-                className={`text-base font-medium tracking-wide px-4 transition-colors hover:text-accent ${
-                  location.pathname === item.path ? 'text-accent' : 'text-text'
-                }`}
+                className={
+                  item.path === '/contatti'
+                    ? 'mx-4 bg-accent text-primary px-5 py-2 text-base font-semibold rounded text-center hover:bg-accent/90 transition-colors'
+                    : `text-base font-medium tracking-wide px-4 transition-colors hover:text-accent ${
+                        location.pathname === item.path ? 'text-accent' : 'text-text'
+                      }`
+                }
               >
                 {item.label}
               </Link>
             ))}
-            <Link
-              to="/contatti"
-              onClick={() => setIsOpen(false)}
-              className="mx-4 bg-accent text-primary px-5 py-2 text-base font-semibold rounded text-center hover:bg-accent/90 transition-colors"
-            >
-              Contattami
-            </Link>
           </div>
         </div>
       </div>

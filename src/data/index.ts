@@ -51,7 +51,7 @@ export const siteConfig = {
     ...(enableVideoPage ? [{ label: "Video", path: "/video" }] : []),
     ...(enableEvents ? [{ label: "Eventi", path: "/eventi" }] : []),
     { label: "Galleria", path: "/galleria" },
-    { label: "Booking", path: "/contatti" },
+    { label: "Contatti", path: "/contatti" },
   ],
 };
 
