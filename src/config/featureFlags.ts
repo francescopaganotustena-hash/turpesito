@@ -16,8 +16,8 @@ export const enableHomeMusicPreview = parseBooleanEnv(import.meta.env.VITE_ENABL
 // Pagina "Musica" disattivata di default; attivala con VITE_ENABLE_MUSIC_PAGE=true
 export const enableMusicPage = parseBooleanEnv(import.meta.env.VITE_ENABLE_MUSIC_PAGE, false);
 
-// Pagina "Video" disattivata di default; attivala con VITE_ENABLE_VIDEO_PAGE=true
-export const enableVideoPage = parseBooleanEnv(import.meta.env.VITE_ENABLE_VIDEO_PAGE, false);
+// Pagina "Video" attiva di default; disattivala con VITE_ENABLE_VIDEO_PAGE=false
+export const enableVideoPage = parseBooleanEnv(import.meta.env.VITE_ENABLE_VIDEO_PAGE, true);
 
 // Card Reel Instagram in Home attive di default; disattivale con VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=false
 export const enableInstagramVideoEmbeds = parseBooleanEnv(import.meta.env.VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS, true);
