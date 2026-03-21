@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
-import { Music, Instagram, Phone, MapPin } from 'lucide-react';
+import { Music, Instagram, Phone, MapPin, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../data';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const whatsappNumber = siteConfig.phone.replace(/\D/g, '');
+  const whatsappUrl = `https://wa.me/${whatsappNumber}`;
 
   return (
     <footer className="bg-secondary border-t border-accent/10">
@@ -23,10 +25,11 @@ export function Footer() {
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-text-muted hover:text-accent transition-colors"
+                className="inline-flex items-center gap-3 text-text-muted hover:text-accent transition-colors"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-7 h-7" />
+                <span className="text-sm font-medium">Seguimi su Instagram</span>
               </a>
             </div>
           </div>
@@ -61,6 +64,17 @@ export function Footer() {
               <li className="flex items-start gap-2 text-text-muted text-sm">
                 <MapPin className="w-4 h-4 text-accent mt-0.5" />
                 <span>{siteConfig.location}</span>
+              </li>
+              <li className="flex items-center gap-2 text-text-muted text-sm">
+                <MessageCircle className="w-4 h-4 text-accent" />
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  Contattami su WhatsApp
+                </a>
               </li>
             </ul>
           </div>
