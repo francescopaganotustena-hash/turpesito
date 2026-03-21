@@ -21,3 +21,12 @@ export const enableVideoPage = parseBooleanEnv(import.meta.env.VITE_ENABLE_VIDEO
 
 // Card Reel Instagram in Home attive di default; disattivale con VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=false
 export const enableInstagramVideoEmbeds = parseBooleanEnv(import.meta.env.VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS, true);
+
+// Scroll reveal attivo di default; disattivalo con VITE_ENABLE_SCROLL_REVEAL=false
+export const enableScrollReveal = parseBooleanEnv(import.meta.env.VITE_ENABLE_SCROLL_REVEAL, true);
+
+// Pulsante WhatsApp floating attivo di default; disattivalo con VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=false
+export const enableWhatsAppFloatingButton = parseBooleanEnv(
+  import.meta.env.VITE_ENABLE_WHATSAPP_FLOATING_BUTTON,
+  true
+);

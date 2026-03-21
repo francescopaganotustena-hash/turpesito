@@ -90,6 +90,18 @@
   background-position: 82% 18%;
 }
 
+.scroll-reveal-ready {
+  opacity: 0;
+  transform: translate3d(0, 28px, 0);
+  transition: opacity 520ms ease, transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
 @media (max-width: 768px) {
   .hero-bg-position {
     background-position: 52% 6% !important;
@@ -103,5 +115,11 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-animated {
     animation: none;
+  }
+
+  .scroll-reveal-ready {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

@@ -255,6 +255,46 @@ VITE_ENABLE_VIDEO_PAGE=true
 
 Per disattivarla di nuovo, imposta `VITE_ENABLE_VIDEO_PAGE=false`.
 
+## Feature Flag Scroll Reveal (Rollback Rapido)
+
+Controlla le animazioni in ingresso delle sezioni durante lo scroll.
+
+- `true` (default): reveal progressivo con animazione leggera
+- `false`: nessuna animazione reveal
+
+Per impostarla:
+
+1. Crea (o aggiorna) `.env.local` nella root del progetto.
+2. Aggiungi:
+
+```bash
+VITE_ENABLE_SCROLL_REVEAL=true
+```
+
+3. Riavvia il dev server (`npm run dev`).
+
+Per disattivarla di nuovo, imposta `VITE_ENABLE_SCROLL_REVEAL=false`.
+
+## Feature Flag WhatsApp Floating Button (Rollback Rapido)
+
+Controlla il pulsante WhatsApp flottante (in basso a destra).
+
+- `true` (default): pulsante visibile (versione discreta a sola icona)
+- `false`: pulsante nascosto
+
+Per impostarla:
+
+1. Crea (o aggiorna) `.env.local` nella root del progetto.
+2. Aggiungi:
+
+```bash
+VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
+```
+
+3. Riavvia il dev server (`npm run dev`).
+
+Per disattivarla di nuovo, imposta `VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=false`.
+
 ## Pubblicazione
 
 ```bash

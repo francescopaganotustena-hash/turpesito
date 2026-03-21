@@ -9,6 +9,8 @@ Stato attuale predefinito:
 - Pagina Musica (/musica): OFF
 - Pagina Video (/video): ON
 - Preview Reel Instagram in Home: ON
+- Scroll reveal sezioni: ON
+- Pulsante WhatsApp floating: ON (versione discreta a sola icona)
 
 ---
 
@@ -63,6 +65,16 @@ Nota importante:
 - `true`: in Home mostra card Reel Instagram collegate al profilo.
 - File coinvolti: `src/config/featureFlags.ts`, `src/components/VideoPreview.tsx`, `src/data/index.ts`.
 
+`VITE_ENABLE_SCROLL_REVEAL`
+- `false`: disattiva tutte le animazioni reveal in ingresso allo scroll.
+- `true`: abilita reveal progressivo delle sezioni (`main section`) con Intersection Observer.
+- File coinvolti: `src/config/featureFlags.ts`, `src/components/ScrollRevealManager.tsx`, `src/index.css`, `src/components/Layout.tsx`.
+
+`VITE_ENABLE_WHATSAPP_FLOATING_BUTTON`
+- `false`: nasconde il pulsante WhatsApp flottante.
+- `true`: mostra il pulsante fisso in basso a destra su tutte le pagine.
+- File coinvolti: `src/config/featureFlags.ts`, `src/components/WhatsAppFloatingButton.tsx`, `src/components/Layout.tsx`.
+
 ---
 
 ## 3) Configurazioni pronte all'uso (copia/incolla)
@@ -75,6 +87,8 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
 VITE_ENABLE_VIDEO_PAGE=true
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_SCROLL_REVEAL=true
+VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 ```
 
 ### Profilo B: solo Musica completa
@@ -85,6 +99,8 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=true
 VITE_ENABLE_MUSIC_PAGE=true
 VITE_ENABLE_VIDEO_PAGE=false
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_SCROLL_REVEAL=true
+VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 ```
 
 ### Profilo C: solo Eventi attivi
@@ -95,6 +111,8 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
 VITE_ENABLE_VIDEO_PAGE=false
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_SCROLL_REVEAL=true
+VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 ```
 
 ### Profilo D: contatti avanzati (con form) ma niente Eventi/Musica
@@ -105,6 +123,8 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
 VITE_ENABLE_VIDEO_PAGE=false
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_SCROLL_REVEAL=true
+VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 ```
 
 ### Profilo E: tutte le sezioni ON (assetto completo)
@@ -115,6 +135,8 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=true
 VITE_ENABLE_MUSIC_PAGE=true
 VITE_ENABLE_VIDEO_PAGE=true
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_SCROLL_REVEAL=true
+VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 ```
 
 ---
@@ -163,6 +185,12 @@ Se `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true`:
 - In Home deve comparire la sezione "Video e Live" con card Reel Instagram.
 - Non devono comparire iframe Instagram con UI nativa.
 
+Se `VITE_ENABLE_SCROLL_REVEAL=false`:
+- Le sezioni devono apparire senza animazione in ingresso.
+
+Se `VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=false`:
+- Non deve comparire il pulsante flottante in basso a destra.
+
 ---
 
 ## 6) Troubleshooting
@@ -194,6 +222,8 @@ Problema: script avvio lanciato con `sh` dava errori.
 - CTA Hero: `src/components/HeroSection.tsx`
 - Pagina video: `src/pages/Videos.tsx`
 - Preview video home: `src/components/VideoPreview.tsx`
+- Scroll reveal manager: `src/components/ScrollRevealManager.tsx`
+- Pulsante WhatsApp floating: `src/components/WhatsAppFloatingButton.tsx`
 - Contatti/Booking: `src/pages/Contact.tsx`
 - Esempi env: `.env.example`
 - Documentazione generale: `README.md`

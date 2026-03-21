@@ -22,6 +22,8 @@
     - `VITE_ENABLE_MUSIC_PAGE=false`
     - `VITE_ENABLE_VIDEO_PAGE=true`
     - `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true`
+    - `VITE_ENABLE_SCROLL_REVEAL=true` (default codice)
+    - `VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true` (default codice)
 
 ## Decisioni tecniche chiave
 - Router cambiato da `BrowserRouter` a `HashRouter` per evitare 404 su refresh in Pages.
@@ -258,6 +260,37 @@ Script dev/LAN (aggiornamento aggiuntivo):
 
 Documento operativo dedicato:
 - Creato `rollback.md` (root progetto) per gestione semplice, guidata e dettagliata delle riattivazioni future.
+
+## Aggiornamento UI/UX premium (2026-03-21): scroll reveal + WhatsApp floating
+Obiettivo richiesto:
+- Integrare due feature ad alto impatto UX/Conversion:
+  - animazioni reveal delle sezioni in scroll
+  - pulsante WhatsApp flottante sempre disponibile
+- Mantenere rollback immediato senza rimuovere codice.
+
+Implementazione:
+- Nuove feature flags in `src/config/featureFlags.ts`:
+  - `VITE_ENABLE_SCROLL_REVEAL` (default `true`)
+  - `VITE_ENABLE_WHATSAPP_FLOATING_BUTTON` (default `true`)
+- Nuovi componenti:
+  - `src/components/ScrollRevealManager.tsx`
+  - `src/components/WhatsAppFloatingButton.tsx`
+- Integrazione globale in `src/components/Layout.tsx`.
+- Stili reveal aggiunti in `src/index.css` con fallback accessibilita su `prefers-reduced-motion`.
+- `.env.example` e `rollback.md` aggiornati con i nuovi toggle.
+- `scripts/profilo-rollback.sh` aggiornato: tutti i profili ora includono anche i due nuovi flag.
+
+Tuning successivo su richiesta utente:
+- Il pulsante WhatsApp e stato reso meno invasivo:
+  - versione compatta a sola icona
+  - dimensioni e shadow ridotte
+  - presenza visiva piu discreta.
+
+Rollback rapido:
+- Disattivare reveal:
+  - `VITE_ENABLE_SCROLL_REVEAL=false`
+- Disattivare floating WhatsApp:
+  - `VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=false`
 - Creato script `scripts/profilo-rollback.sh` per applicare profili `.env.local` in un comando (con `list` e `--dry-run`).
 
 ## Aggiornamento contenuti visual (2026-03-20)
