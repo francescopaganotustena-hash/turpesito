@@ -45,7 +45,7 @@ src/
 │   ├── Home.tsx            # Homepage completa
 │   ├── Biography.tsx       # Biografia + achievements
 │   ├── Music.tsx           # Catalogo brani + featured track
-│   ├── Videos.tsx          # Video con embed YouTube
+│   ├── Videos.tsx          # Raccolta video locali (.mp4) in griglia portrait
 │   ├── Events.tsx          # Eventi passati/futuri
 │   ├── Gallery.tsx         # Galleria fotografica
 │   └── Contact.tsx         # Pagina booking/contatti
@@ -65,7 +65,7 @@ src/
 | Musica | `/musica` | Featured track, catalogo brani con cover (abilitabile via feature flag) |
 | Video | `/video` | Pagina opzionale (attivabile via feature flag) |
 | Eventi | `/eventi` | Eventi futuri (confermati) e passati, attivabile via feature flag |
-| Galleria | `/galleria` | Foto con filtro categoria e lightbox |
+| Galleria | `/galleria` | Foto con lightbox (senza filtri categoria) |
 | Contatti | `/contatti` | Booking con contatti diretti (form opzionale via feature flag) |
 
 ## Design System
@@ -85,7 +85,7 @@ src/
 - **HeroSection**: Fullscreen con overlay gradient, animate bounce scroll indicator
 - **MusicPreview/VideoPreview**: Grid responsive con hover effects
 - **EventList**: Card con badge status, date iconiche italiane
-- **GalleryGrid**: Masonry-style con lightbox, category filter
+- **GalleryGrid**: Griglia responsive con lightbox e navigazione prev/next
 - **ContactForm**: Validazione completa, feedback stati (loading/success/error), attivabile via feature flag
 
 ## Setup e Avvio
@@ -118,8 +118,11 @@ biography: { intro, paragraphs[], achievements[] }
 // Brani musicali
 tracks: [{ id, title, artist, duration, category, year, cover, spotifyUrl, description }]
 
-// Video
+// Video preview (modalita classica Home quando Instagram e disattivato)
 videos: [{ id, title, description, thumbnail, youtubeId, duration, date }]
+
+// Reels Instagram (modalita Home di default)
+instagramReels: [{ id, title, description, date, url, thumbnail }]
 
 // Eventi
 events: [{ id, title, type, date, time, location, city, description, status }]
@@ -132,7 +135,7 @@ heroImages: { hero, biography, cta }
 ```
 
 ### Step per Personalizzazione
-1. **Immagini**: Sostituire URL in `heroImages`, `tracks[].cover`, `videos[].thumbnail`, `gallery[].src`
+1. **Media**: Sostituire asset locali in `src/assets/` (hero, cover brani, reels, galleria, video mp4)
 2. **Testi**: Modificare `siteConfig`, `biography`, `tracks`, `videos`, `events`
 3. **Social**: Aggiornare `siteConfig.social` con link reali
 4. **Eventi**: Modificare `events` (status: "upcoming" | "past")
@@ -213,11 +216,13 @@ VITE_ENABLE_MUSIC_PAGE=true
 
 Per disattivarla di nuovo, imposta `VITE_ENABLE_MUSIC_PAGE=false` (o rimuovi la variabile).
 
-## Feature Flag Test Reel Instagram in Video (Rollback Rapido)
+## Feature Flag Reel Instagram in Home (Rollback Rapido)
 
-Mostra card Reel Instagram (senza iframe) in Home e, se la pagina Video e attiva, anche in `/video`.
+Controlla la sezione "Video e Live" in Home:
+- `true` (default): card Reel Instagram (senza iframe)
+- `false`: preview video classica basata sui dati `videos`
 
-Per attivarla:
+Per impostarla:
 
 1. Crea (o aggiorna) `.env.local` nella root del progetto.
 2. Aggiungi:
@@ -228,13 +233,12 @@ VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 
 3. Riavvia il dev server (`npm run dev`).
 
-Per disattivare questa modalita, imposta:
-`VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=false`.
+Valore consigliato attuale: `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true`.
 
 ## Feature Flag Pagina Video (Rollback Rapido)
 
-La pagina `/video` e disattivata di default.
-Quando disattiva:
+La pagina `/video` e attiva di default.
+Quando disattivata:
 - la voce "Video" sparisce dalla navigazione
 - la route `/video` fa redirect automatico a Home
 
@@ -281,16 +285,15 @@ Nota routing:
 
 - Meta description e keywords in ogni pagina
 - Open Graph tags per social sharing
-- URL pulite (senza hash)
+- URL hash-based per compatibilita GitHub Pages (`/#/contatti`, `/#/galleria`, ...)
 - Semantic HTML (h1-h6 strutturati, alt text immagini)
 - Google Fonts ottimizzate con preconnect
 
 ## Note di Sviluppo
 
-- Tutti i link YouTube/Vimeo usano placeholder `dQw4w9WgXcQ` - sostituire con ID reali
-- Immagini da Unsplash (placeholder) - sostituire con foto reali dell'artista
-- Form contatti simula invio (timeout 1.5s) - collegare a backend reale (es. Formspree, EmailJS)
-- Eventuali richieste di booking真实的 andrebbero inviate via email con Resend o similar
+- Il form contatti (quando attivato) simula invio lato frontend - collegare a backend reale (es. Formspree, EmailJS, Resend API).
+- La pagina `/video` usa file locali `src/assets/videos/*.mp4`: valutare compressione periodica per ridurre tempi di build/deploy.
+- Se usi `.env.local`, ricorda che e ignorato da Git: i default condivisi vanno mantenuti in `.env.example`.
 
 ```bash
 npm run build    # Production build

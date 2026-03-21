@@ -7,7 +7,7 @@ Stato attuale predefinito:
 - Form contatti ("Invia una richiesta"): OFF
 - Preview musica Home ("Ultime uscite"): OFF
 - Pagina Musica (/musica): OFF
-- Pagina Video (/video): OFF
+- Pagina Video (/video): ON
 - Preview Reel Instagram in Home: ON
 
 ---
@@ -59,9 +59,9 @@ Nota importante:
 - File coinvolti: `src/App.tsx`, `src/data/index.ts`, `src/components/VideoPreview.tsx`.
 
 `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS`
-- `false`: in Home viene nascosta la sezione "Video e Live" quando `/video` è disattivata; se `/video` è attiva, mostra fallback YouTube.
-- `true`: in Home mostra card Reel Instagram collegate al profilo; se `/video` è attiva, anche la pagina `/video` usa card Reel Instagram.
-- File coinvolti: `src/config/featureFlags.ts`, `src/components/VideoPreview.tsx`, `src/pages/Videos.tsx`, `src/data/index.ts`.
+- `false`: in Home usa la preview video classica basata su `videos` (`src/data/index.ts`).
+- `true`: in Home mostra card Reel Instagram collegate al profilo.
+- File coinvolti: `src/config/featureFlags.ts`, `src/components/VideoPreview.tsx`, `src/data/index.ts`.
 
 ---
 
@@ -73,7 +73,7 @@ VITE_ENABLE_EVENTS=false
 VITE_ENABLE_CONTACT_FORM=false
 VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
-VITE_ENABLE_VIDEO_PAGE=false
+VITE_ENABLE_VIDEO_PAGE=true
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 ```
 

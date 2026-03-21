@@ -12,6 +12,16 @@
 - Routing compatibile GitHub Pages con `HashRouter`.
 - Workflow deploy automatico attivo su push in `main`.
 - Scroll reset su navigazione attivo (le pagine si aprono dall'alto).
+- Ricognizione locale del 2026-03-21 completata:
+  - `npm run lint` OK
+  - `npm run build` OK
+  - feature flags correnti:
+    - `VITE_ENABLE_EVENTS=false`
+    - `VITE_ENABLE_CONTACT_FORM=false`
+    - `VITE_ENABLE_HOME_MUSIC_PREVIEW=false`
+    - `VITE_ENABLE_MUSIC_PAGE=false`
+    - `VITE_ENABLE_VIDEO_PAGE=true`
+    - `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true`
 
 ## Decisioni tecniche chiave
 - Router cambiato da `BrowserRouter` a `HashRouter` per evitare 404 su refresh in Pages.
@@ -62,7 +72,8 @@
   - `npm run build`
 
 ## Prossimi step consigliati
-- Sostituire contenuti placeholder (immagini, link social, YouTube ID).
+- Allineare e mantenere coerenti documentazione operativa (`README.md`, `rollback.md`, `.env.example`) con i default reali.
+- Ottimizzare media pesanti (immagini/video) per migliorare build, deploy e performance.
 - Valutare pulizia dipendenze non usate.
 - Eventuale ottimizzazione SEO Open Graph (immagine/social cards reali).
 
@@ -208,7 +219,7 @@ Approccio adottato:
 - Introduzione feature flags centralizzate in:
   - `src/config/featureFlags.ts`
 - Ogni area disattivata e governata da una variabile `VITE_*`.
-- Stato di default attuale: tutte le sezioni richieste sono **OFF**.
+- In quella fase (2026-03-20) lo stato di default richiesto era: sezioni principali **OFF**.
 
 Feature flags attive nel progetto:
 - `VITE_ENABLE_EVENTS=false`
@@ -287,6 +298,10 @@ Nota tecnica build:
 - sezione Home "Video e Live" mantenuta attiva con card Reel Instagram (senza iframe nativo Instagram, per evitare UI forzata).
 - fix GitHub Pages:
   - thumbnail reel ora in asset bundle (import da `src/assets`), non path statico fragile.
+
+Nota aggiornamento successivo (2026-03-21):
+- `VITE_ENABLE_VIDEO_PAGE` e stato riportato a default `true`.
+- `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS` e stato portato a default `true`.
 
 ## Aggiornamento contatti Booking (2026-03-20)
 - in pagina `Booking e Contatti`:

@@ -23,7 +23,7 @@ Uso:
   scripts/profilo-rollback.sh apply <profilo> [--dry-run]
 
 Profili disponibili:
-  minimal            Tutto OFF (stato minimale)
+  minimal            Core OFF + pagina Video ON (stato attuale)
   full               Tutto ON
   events-only        Solo Eventi ON
   contact-advanced   Solo form contatti ON
@@ -41,7 +41,7 @@ VITE_ENABLE_EVENTS=false
 VITE_ENABLE_CONTACT_FORM=false
 VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
-VITE_ENABLE_VIDEO_PAGE=false
+VITE_ENABLE_VIDEO_PAGE=true
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 BLOCK
       ;;
