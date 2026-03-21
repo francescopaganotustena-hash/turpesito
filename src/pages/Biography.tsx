@@ -3,6 +3,7 @@ import { Award, Mic, Calendar, Music } from 'lucide-react';
 import { biography, heroImages, siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
 import { CTASection } from '../components/CTASection';
+import biographyVideo from '../assets/site-photos/biografia-sax.mp4';
 
 export function Biography() {
   const [firstName, ...rest] = siteConfig.name.split(' ');
@@ -60,18 +61,36 @@ export function Biography() {
 
       {/* Biography Content */}
       <section className="py-24 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionTitle
-            title="Il Percorso"
-            subtitle="Dalla formazione alla professione"
-          />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <SectionTitle
+                title="Il Percorso"
+                subtitle="Dalla formazione alla professione"
+              />
 
-          <div className="space-y-8">
-            {biography.paragraphs.map((paragraph, index) => (
-              <p key={index} className="text-lg text-text/80 leading-relaxed">
-                {paragraph}
-              </p>
-            ))}
+              <div className="space-y-8">
+                {biography.paragraphs.map((paragraph, index) => (
+                  <p key={index} className="text-lg text-text/80 leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            <div className="w-full">
+              <div className="rounded-lg overflow-hidden border border-accent/20 shadow-2xl bg-secondary">
+                <video
+                  className="w-full h-auto"
+                  src={biographyVideo}
+                  autoPlay
+                  muted
+                  playsInline
+                  loop
+                  controls
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
