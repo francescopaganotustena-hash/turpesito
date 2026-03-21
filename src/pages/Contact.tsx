@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Phone, MapPin, Instagram, Youtube } from 'lucide-react';
+import { Phone, MapPin, Instagram } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
 import { siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
@@ -70,15 +70,6 @@ export function Contact() {
                     aria-label="Instagram"
                   >
                     <Instagram className="w-5 h-5 text-accent" />
-                  </a>
-                  <a
-                    href={siteConfig.social.youtube}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-secondary p-3 rounded-lg hover:bg-accent/10 transition-colors"
-                    aria-label="YouTube"
-                  >
-                    <Youtube className="w-5 h-5 text-accent" />
                   </a>
                 </div>
               </div>
