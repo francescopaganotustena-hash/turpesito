@@ -23,13 +23,6 @@ export function GalleryGrid() {
     setSelectedImage(gallery[newIndex].id);
   };
 
-  const categories = ['Tutti', ...new Set(gallery.map((img) => img.category))];
-  const [activeCategory, setActiveCategory] = useState('Tutti');
-
-  const filteredImages = activeCategory === 'Tutti' 
-    ? gallery 
-    : gallery.filter((img) => img.category === activeCategory);
-
   return (
     <section className="py-24 bg-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,26 +32,9 @@ export function GalleryGrid() {
           centered
         />
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 text-sm rounded-full transition-colors ${
-                activeCategory === category
-                  ? 'bg-accent text-primary'
-                  : 'bg-secondary text-text-muted hover:text-text'
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filteredImages.map((image) => (
+          {gallery.map((image) => (
             <button
               key={image.id}
               onClick={() => openLightbox(image.id)}

@@ -294,3 +294,46 @@ Nota tecnica build:
 - aggiornati dati contatto globali in `siteConfig`:
   - telefono: `+39 338 2147345`
   - zona: `Napoli e provincia`
+
+## Aggiornamento sessione (2026-03-21): Video/Biografia/Galleria
+Obiettivi richiesti:
+- inserire un video MP4 embedded nella pagina Biografia;
+- creare/attivare una pagina Video con file locali;
+- rifinire layout Video (portrait, solo player, link Instagram);
+- semplificare Galleria rimuovendo categorie/filtri.
+
+Interventi eseguiti:
+- Biografia:
+  - aggiunto video locale `src/assets/site-photos/biografia-sax.mp4` nella sezione "Il Percorso" con layout 2 colonne (testo a sinistra, video a destra);
+  - player impostato con autoplay muto, loop, controls nativi (rimosso pulsante audio custom).
+- Pagina Video:
+  - sostituita logica Reel/YouTube con raccolta di video locali da `src/assets/videos/*.mp4` (18 file importati da `/home/sviluppatore/Documenti/VideoGianluca`);
+  - card in stile sito con cornice elegante;
+  - player in formato portrait (aspect ratio 9:16), autoplay muto, controls nativi;
+  - aggiunto link in testa pagina a Instagram con icona e testo:
+    - "Visita il mio profilo instagram per vedere altri contenuti";
+  - rimossi titoli e descrizioni sotto ai video (pagina minimale: solo player).
+- Layout griglia Video:
+  - introdotto toggle rapido in `src/pages/Videos.tsx`:
+    - `useThreeColumnsDesktop = true` per 3 video per riga su desktop (`xl:grid-cols-3`);
+    - basta impostarlo a `false` per rollback immediato a 2 colonne.
+- Feature flag Video:
+  - pagina Video ora attiva di default nel codice:
+    - `enableVideoPage` default `true` in `src/config/featureFlags.ts`;
+  - `.env.example` aggiornato coerentemente con `VITE_ENABLE_VIDEO_PAGE=true`.
+- Galleria:
+  - rimossa completamente la barra categorie/filtro;
+  - ora mostra direttamente tutte le immagini.
+
+File principali coinvolti:
+- `src/pages/Biography.tsx`
+- `src/assets/site-photos/biografia-sax.mp4`
+- `src/pages/Videos.tsx`
+- `src/assets/videos/` (1.mp4 ... 18.mp4)
+- `src/config/featureFlags.ts`
+- `.env.example`
+- `src/components/GalleryGrid.tsx`
+
+Note operative:
+- `.env.local` resta ignorato da Git (voluto): non usare `.env.local` per modifiche che devono comparire in remoto.
+- verifiche build locale effettuate con esito positivo durante la sessione.
