@@ -401,3 +401,17 @@ File locali attualmente modificati (dirty) da validare/committare:
 
 Nota importante:
 - il blocco mostrato negli screenshot utente era la CTA, non la Hero principale; questo e stato chiarito in sessione e corretto nel flusso di lavoro.
+
+## Chiusura sessione (2026-03-21)
+Stato finale:
+- tutte le modifiche richieste in questa sessione risultano committate e pushate su `main`;
+- working tree locale pulita al termine.
+
+Aggiornamenti finali pubblicati (parte conclusiva sessione):
+- `d7615d5` chore: aggiorna memoria sessione e rifinisce CTA home
+- `e625850` style: rifinisce hero e cta homepage su inquadratura e posizione pulsante
+- `f4bd50d` fix: migliora resa hero mobile con cta visibile e inquadratura stabile
+
+Nota operativa di sospensione:
+- il sito e stato lasciato in uno stato stabile (build verificata con esito positivo nelle ultime iterazioni);
+- al prossimo riavvio sessione si puo ripartire dal test mobile portrait della homepage e da eventuale ulteriore tuning fine dell'inquadratura CTA/Hero.
