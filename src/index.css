@@ -69,17 +69,35 @@
 
 @keyframes heroBackgroundDrift {
   0% {
-    transform: scale(1.02) translate3d(-14px, -6px, 0);
+    transform: scale(1) translate3d(-10px, -2px, 0);
   }
   100% {
-    transform: scale(1.1) translate3d(20px, 8px, 0);
+    transform: scale(1.02) translate3d(2px, 0, 0);
   }
+}
+
+.hero-bg-position {
+  background-position: 82% 0% !important;
 }
 
 .hero-bg-animated {
   animation: heroBackgroundDrift 17s ease-in-out infinite alternate;
-  transform-origin: center;
+  transform-origin: 82% 8%;
   will-change: transform;
+}
+
+.cta-bg-position {
+  background-position: 82% 18%;
+}
+
+@media (max-width: 768px) {
+  .hero-bg-position {
+    background-position: 70% 4% !important;
+  }
+
+  .cta-bg-position {
+    background-position: 76% 18%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

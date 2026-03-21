@@ -10,15 +10,15 @@ export function CTASection({ showContactLine = true }: CTASectionProps) {
   return (
     <section className="relative py-24 overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-no-repeat cta-bg-position"
         style={{ backgroundImage: `url("${heroImages.cta}")` }}
       />
       <div className="absolute inset-0 bg-primary/30" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 bg-accent/20 rounded-full px-4 py-2 mb-6">
+        <div className="inline-flex items-center gap-2 bg-primary/65 border border-accent/45 rounded-full px-4 py-2 mb-6">
           <Star className="w-4 h-4 text-accent" />
-          <span className="text-sm text-accent font-medium">
+          <span className="text-sm text-accent font-semibold">
             Disponibile per eventi a Napoli e provincia
           </span>
         </div>
@@ -35,7 +35,7 @@ export function CTASection({ showContactLine = true }: CTASectionProps) {
 
         <Link
           to="/contatti"
-          className="inline-flex items-center gap-3 bg-accent text-primary px-10 py-5 text-xl font-bold rounded hover:bg-accent/90 transition-all hover:scale-105"
+          className="inline-flex items-center gap-3 bg-accent/40 text-primary px-10 py-5 text-xl font-bold rounded hover:bg-accent/50 transition-all hover:scale-105"
         >
           {siteConfig.bookingTitle}
           <ArrowRight className="w-6 h-6" />

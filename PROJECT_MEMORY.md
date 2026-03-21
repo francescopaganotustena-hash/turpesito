@@ -352,3 +352,52 @@ File principali coinvolti:
 Note operative:
 - `.env.local` resta ignorato da Git (voluto): non usare `.env.local` per modifiche che devono comparire in remoto.
 - verifiche build locale effettuate con esito positivo durante la sessione.
+
+## Aggiornamento sessione (2026-03-21): documentazione, social, contatti e CTA
+Obiettivi richiesti:
+- riallineare documentazione/config allo stato reale del progetto;
+- rimuovere ogni richiamo a YouTube dal sito;
+- migliorare CTA social (Instagram/WhatsApp) in footer e pagina Contatti;
+- eliminare duplicazione in navbar tra "Contatti" e "Contattami";
+- ottimizzare inquadratura e leggibilita della sezione CTA in Home.
+
+Interventi eseguiti e gia pubblicati:
+- Documentazione/rollback allineati ai default reali:
+  - aggiornati `README.md`, `PROJECT_MEMORY.md`, `.env.example`, `rollback.md`, `scripts/profilo-rollback.sh`.
+- Backlog strategico salvato e versionato:
+  - creato `MARKETING_SEO_BACKLOG.md`.
+- YouTube rimosso da UI e dati:
+  - rimossi link/icona YouTube in footer e contatti;
+  - rimossi campi `youtubeId` dai dati video.
+- Footer:
+  - CTA Instagram resa piu evidente ("Seguimi su Instagram");
+  - aggiunto link WhatsApp diretto su numero configurato.
+- Pagina Contatti:
+  - rinominata UI da "Booking" a "Contatti";
+  - aggiunto blocco WhatsApp dedicato e allineato graficamente al blocco Telefono.
+- Navigazione:
+  - voce menu finale rinominata "Contatti";
+  - rimosso il duplicato "Contattami" in navbar;
+  - mantenuta una sola CTA colorata "Contatti" (desktop+mobile).
+
+Commit pubblicati in questa sessione:
+- `c04e12a` docs: allinea documentazione e rollback ai default feature flags correnti
+- `ed0ec17` docs: aggiunge backlog marketing seo per pianificazione futura
+- `510393f` refactor: rimuove riferimenti youtube da sito e dati
+- `eb6dd83` feat: migliora footer home con CTA instagram e whatsapp
+- `ea00bd9` refactor: uniforma sezione contatti e navigazione senza duplicati
+
+Intervento finale in corso (non ancora commit/push al momento di questa nota):
+- iniziale tentativo su Hero (poi risultato non rilevante rispetto al target visuale);
+- correzione effettiva su CTA Home ("Il tuo evento merita la voce giusta"):
+  - classe dedicata per inquadratura background (`cta-bg-position`) con posizionamento ottimizzato;
+  - badge "Disponibile per eventi..." reso piu leggibile con contrasto maggiore;
+  - bottone "Richiedi una data" reso progressivamente piu trasparente su richiesta.
+
+File locali attualmente modificati (dirty) da validare/committare:
+- `src/components/CTASection.tsx`
+- `src/components/HeroSection.tsx`
+- `src/index.css`
+
+Nota importante:
+- il blocco mostrato negli screenshot utente era la CTA, non la Hero principale; questo e stato chiarito in sessione e corretto nel flusso di lavoro.

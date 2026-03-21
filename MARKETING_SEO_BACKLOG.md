@@ -1,6 +1,7 @@
 # Marketing & SEO Backlog (Da Implementare in Futuro)
 
 Data inserimento: 2026-03-21
+Ultimo aggiornamento memoria: 2026-03-21 (nessuna implementazione marketing/seo applicata)
 Stato: solo note strategiche, nessuna implementazione tecnica eseguita.
 
 ## Obiettivo
