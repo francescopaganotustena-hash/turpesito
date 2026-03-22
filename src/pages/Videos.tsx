@@ -3,6 +3,8 @@ import { Instagram } from 'lucide-react';
 import { siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
 import { CTASection } from '../components/CTASection';
+import { SmartVideo } from '../components/SmartVideo';
+import { enableMediaAutoplay, enableMediaLazyLoading } from '../config/featureFlags';
 
 const videoModules = import.meta.glob('../assets/videos/*.mp4', {
   eager: true,
@@ -57,14 +59,16 @@ export function Videos() {
                 className="relative p-[2px] rounded-2xl bg-gradient-to-br from-accent/60 via-accent/25 to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
               >
                 <div className="relative aspect-[9/16] rounded-2xl overflow-hidden border border-accent/25 bg-secondary">
-                  <video
+                  <SmartVideo
                     className="w-full h-full object-cover"
                     src={video.src}
-                    autoPlay
+                    enableLazyLoading={enableMediaLazyLoading}
+                    autoPlay={enableMediaAutoplay}
                     muted
                     playsInline
                     loop
                     controls
+                    preload="metadata"
                   />
                 </div>
               </div>

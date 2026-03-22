@@ -4,6 +4,8 @@ import { biography, heroImages, siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
 import { CTASection } from '../components/CTASection';
 import biographyVideo from '../assets/site-photos/biografia-sax.mp4';
+import { enableMediaAutoplay, enableMediaLazyLoading } from '../config/featureFlags';
+import { SmartVideo } from '../components/SmartVideo';
 
 export function Biography() {
   const [firstName, ...rest] = siteConfig.name.split(' ');
@@ -80,14 +82,16 @@ export function Biography() {
 
             <div className="w-full">
               <div className="rounded-lg overflow-hidden border border-accent/20 shadow-2xl bg-secondary">
-                <video
+                <SmartVideo
                   className="w-full h-auto"
                   src={biographyVideo}
-                  autoPlay
+                  enableLazyLoading={enableMediaLazyLoading}
+                  autoPlay={enableMediaAutoplay}
                   muted
                   playsInline
                   loop
                   controls
+                  preload="metadata"
                 />
               </div>
             </div>

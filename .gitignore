@@ -27,3 +27,4 @@ dist-ssr
 .vite-dev.pid
 .env.local
 .env.local.bak.*
+media-backups/

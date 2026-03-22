@@ -30,3 +30,9 @@ export const enableWhatsAppFloatingButton = parseBooleanEnv(
   import.meta.env.VITE_ENABLE_WHATSAPP_FLOATING_BUTTON,
   true
 );
+
+// Lazy loading media pesanti attivo di default; disattivalo con VITE_ENABLE_MEDIA_LAZY_LOADING=false
+export const enableMediaLazyLoading = parseBooleanEnv(import.meta.env.VITE_ENABLE_MEDIA_LAZY_LOADING, true);
+
+// Autoplay media pesanti disattivato di default; riattivalo con VITE_ENABLE_MEDIA_AUTOPLAY=true
+export const enableMediaAutoplay = parseBooleanEnv(import.meta.env.VITE_ENABLE_MEDIA_AUTOPLAY, false);

@@ -11,6 +11,8 @@ Stato attuale predefinito:
 - Preview Reel Instagram in Home: ON
 - Scroll reveal sezioni: ON
 - Pulsante WhatsApp floating: ON (versione discreta a sola icona)
+- Media lazy loading: ON
+- Media autoplay pesanti: OFF
 
 ---
 
@@ -75,6 +77,16 @@ Nota importante:
 - `true`: mostra il pulsante fisso in basso a destra su tutte le pagine.
 - File coinvolti: `src/config/featureFlags.ts`, `src/components/WhatsAppFloatingButton.tsx`, `src/components/Layout.tsx`.
 
+`VITE_ENABLE_MEDIA_LAZY_LOADING`
+- `false`: carica subito i video pesanti (comportamento legacy).
+- `true`: carica i video solo vicino al viewport (meno traffico iniziale).
+- File coinvolti: `src/config/featureFlags.ts`, `src/components/SmartVideo.tsx`, `src/pages/Biography.tsx`, `src/pages/Videos.tsx`.
+
+`VITE_ENABLE_MEDIA_AUTOPLAY`
+- `false`: disattiva autoplay dei video pesanti.
+- `true`: riattiva autoplay automatico (comportamento legacy).
+- File coinvolti: `src/config/featureFlags.ts`, `src/pages/Biography.tsx`, `src/pages/Videos.tsx`.
+
 ---
 
 ## 3) Configurazioni pronte all'uso (copia/incolla)
@@ -89,6 +101,8 @@ VITE_ENABLE_VIDEO_PAGE=true
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
+VITE_ENABLE_MEDIA_LAZY_LOADING=true
+VITE_ENABLE_MEDIA_AUTOPLAY=false
 ```
 
 ### Profilo B: solo Musica completa
@@ -101,6 +115,8 @@ VITE_ENABLE_VIDEO_PAGE=false
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
+VITE_ENABLE_MEDIA_LAZY_LOADING=true
+VITE_ENABLE_MEDIA_AUTOPLAY=false
 ```
 
 ### Profilo C: solo Eventi attivi
@@ -113,6 +129,8 @@ VITE_ENABLE_VIDEO_PAGE=false
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
+VITE_ENABLE_MEDIA_LAZY_LOADING=true
+VITE_ENABLE_MEDIA_AUTOPLAY=false
 ```
 
 ### Profilo D: contatti avanzati (con form) ma niente Eventi/Musica
@@ -125,6 +143,8 @@ VITE_ENABLE_VIDEO_PAGE=false
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
+VITE_ENABLE_MEDIA_LAZY_LOADING=true
+VITE_ENABLE_MEDIA_AUTOPLAY=false
 ```
 
 ### Profilo E: tutte le sezioni ON (assetto completo)
@@ -137,6 +157,8 @@ VITE_ENABLE_VIDEO_PAGE=true
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
+VITE_ENABLE_MEDIA_LAZY_LOADING=true
+VITE_ENABLE_MEDIA_AUTOPLAY=false
 ```
 
 ---
@@ -190,6 +212,12 @@ Se `VITE_ENABLE_SCROLL_REVEAL=false`:
 
 Se `VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=false`:
 - Non deve comparire il pulsante flottante in basso a destra.
+
+Se `VITE_ENABLE_MEDIA_LAZY_LOADING=true`:
+- I video nella pagina Biografia e Video devono iniziare a caricarsi solo vicino alla viewport.
+
+Se `VITE_ENABLE_MEDIA_AUTOPLAY=false`:
+- I video nella pagina Biografia e Video non devono avviarsi automaticamente.
 
 ---
 
@@ -262,3 +290,35 @@ Dettagli operativi script:
 Dopo l'applicazione di un profilo:
 1. riavvia il server
 2. verifica Home, Contatti, Musica, Eventi in base al profilo scelto
+
+---
+
+## 9) Ottimizzazione video con backup (ffmpeg locale)
+
+Sono disponibili due script dedicati:
+- `scripts/ottimizza-video.sh`
+- `scripts/ripristina-video.sh`
+
+Prerequisito:
+- dipendenza dev `ffmpeg-static` installata nel progetto (`package.json`).
+
+Ottimizzazione (con backup automatico):
+```bash
+./scripts/ottimizza-video.sh
+```
+
+Cosa fa:
+- crea backup versionato in `media-backups/videos-YYYYMMDD_HHMMSS/`
+- genera report per-file in `report.tsv`
+- sostituisce il file originale solo se la versione ottimizzata e piu piccola
+- aggiorna symlink ultimo backup: `media-backups/latest-videos`
+
+Rollback completo dall'ultimo backup:
+```bash
+./scripts/ripristina-video.sh
+```
+
+Rollback da backup specifico:
+```bash
+./scripts/ripristina-video.sh "/percorso/backup/videos-YYYYMMDD_HHMMSS"
+```

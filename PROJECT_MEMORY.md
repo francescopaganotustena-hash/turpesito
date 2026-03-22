@@ -123,6 +123,46 @@
 - Stato corrente da mantenere:
   - hero locale importata da `src/assets/hero-main.png`.
 
+## Ottimizzazione media pesanti (aggiornamento 2026-03-22)
+- Obiettivo: ridurre il carico iniziale senza modificare/rompere gli asset originali.
+- Implementazione safe:
+  - nuovo componente `src/components/SmartVideo.tsx` con lazy loading via `IntersectionObserver`.
+  - applicato a:
+    - `src/pages/Biography.tsx` (video biografia)
+    - `src/pages/Videos.tsx` (griglia video)
+  - preload controllato (`none` fuori viewport, `metadata` quando vicino/visibile).
+- Nuove feature flag (rollback immediato):
+  - `VITE_ENABLE_MEDIA_LAZY_LOADING` (default `true`)
+  - `VITE_ENABLE_MEDIA_AUTOPLAY` (default `false`)
+- Documentazione e profili rollback aggiornati:
+  - `.env.example`
+  - `.env.local`
+  - `rollback.md`
+  - `scripts/profilo-rollback.sh`
+- Verifiche:
+  - `npm run lint` OK
+  - `npm run build` OK
+
+## Ottimizzazione fisica video con ffmpeg (aggiornamento 2026-03-22)
+- Richiesta utente: procedere con ffmpeg se utile.
+- Vincolo ambiente: niente privilegi sudo (installazione sistema non disponibile).
+- Soluzione adottata:
+  - aggiunta dipendenza dev `ffmpeg-static` (binario ffmpeg locale via npm).
+  - nuovi script:
+    - `scripts/ottimizza-video.sh`
+    - `scripts/ripristina-video.sh`
+  - backup automatico e versionato in `media-backups/` (ignorata da git).
+- Batch eseguito su:
+  - `src/assets/videos/*.mp4`
+  - `src/assets/site-photos/biografia-sax.mp4`
+- Esito batch:
+  - totale prima: `166 MB`
+  - totale dopo: `123 MB`
+  - risparmio: `44 MB` (`26.19%`)
+  - backup usato: `media-backups/videos-20260322_065821`
+- Rollback completo immediato:
+  - `./scripts/ripristina-video.sh "/home/sviluppatore/Documenti/Gianluca/media-backups/videos-20260322_065821"`
+
 ## Nota operativa Git (molto importante)
 - In questa macchina il push SSH su `origin` fallisce periodicamente:
   - errore: `Permission denied to deploy key`.
