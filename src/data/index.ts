@@ -14,7 +14,6 @@ import reel2 from '../assets/site-photos/reel-2.jpg';
 import reel3 from '../assets/site-photos/reel-3.jpg';
 import reel4 from '../assets/site-photos/reel-4.jpg';
 import ctaCustom from '../assets/gallery/Backstage/WhatsApp Image 2026-03-20 at 00.03.37 (5).jpeg';
-import { enableEvents, enableMusicPage, enableVideoPage } from '../config/featureFlags';
 
 const galleryModules = import.meta.glob('../assets/gallery/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}', {
   eager: true,
@@ -46,9 +45,7 @@ export const siteConfig = {
   navigation: [
     { label: "Home", path: "/" },
     { label: "Biografia", path: "/biografia" },
-    ...(enableMusicPage ? [{ label: "Musica", path: "/musica" }] : []),
-    ...(enableVideoPage ? [{ label: "Video", path: "/video" }] : []),
-    ...(enableEvents ? [{ label: "Eventi", path: "/eventi" }] : []),
+    { label: "Video", path: "/video" },
     { label: "Galleria", path: "/galleria" },
     { label: "Contatti", path: "/contatti" },
   ],

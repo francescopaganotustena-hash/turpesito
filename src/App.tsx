@@ -4,13 +4,10 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
 import { Biography } from './pages/Biography';
-import { Music } from './pages/Music';
 import { Videos } from './pages/Videos';
-import { Events } from './pages/Events';
 import { Gallery } from './pages/Gallery';
 import { Contact } from './pages/Contact';
 import { PrivacyCookie } from './pages/PrivacyCookie';
-import { enableEvents, enableMusicPage, enableVideoPage } from './config/featureFlags';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,18 +28,9 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="biografia" element={<Biography />} />
-            <Route
-              path="musica"
-              element={enableMusicPage ? <Music /> : <Navigate to="/" replace />}
-            />
-            <Route
-              path="video"
-              element={enableVideoPage ? <Videos /> : <Navigate to="/" replace />}
-            />
-            <Route
-              path="eventi"
-              element={enableEvents ? <Events /> : <Navigate to="/" replace />}
-            />
+            <Route path="musica" element={<Navigate to="/" replace />} />
+            <Route path="video" element={<Videos />} />
+            <Route path="eventi" element={<Navigate to="/" replace />} />
             <Route path="galleria" element={<Gallery />} />
             <Route path="contatti" element={<Contact />} />
             <Route path="privacy-cookie" element={<PrivacyCookie />} />

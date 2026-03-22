@@ -4,7 +4,6 @@ import { biography, heroImages, siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
 import { CTASection } from '../components/CTASection';
 import biographyVideo from '../assets/site-photos/biografia-sax.mp4';
-import { enableMediaAutoplay, enableMediaLazyLoading } from '../config/featureFlags';
 import { SmartVideo } from '../components/SmartVideo';
 
 export function Biography() {
@@ -91,8 +90,8 @@ export function Biography() {
                 <SmartVideo
                   className="w-full h-auto"
                   src={biographyVideo}
-                  enableLazyLoading={enableMediaLazyLoading}
-                  autoPlay={enableMediaAutoplay}
+                  enableLazyLoading
+                  autoPlay={false}
                   muted
                   playsInline
                   loop

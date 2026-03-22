@@ -1,16 +1,13 @@
 import { Helmet } from 'react-helmet-async';
 import { Phone, Instagram, MessageCircle } from 'lucide-react';
-import { ContactForm } from '../components/ContactForm';
 import { siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
-import { enableContactForm } from '../config/featureFlags';
 
 export function Contact() {
-  const isCenteredLayout = !enableContactForm;
   const whatsappNumber = siteConfig.phone.replace(/\D/g, '');
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
-  const contactRowClass = `flex items-center gap-4 ${isCenteredLayout ? 'justify-center w-full' : ''}`;
-  const contactTextClass = isCenteredLayout ? 'w-60 text-left' : '';
+  const contactRowClass = 'flex items-center gap-4 justify-center w-full';
+  const contactTextClass = 'w-60 text-left';
 
   return (
     <>
@@ -21,16 +18,16 @@ export function Contact() {
 
       <div className="pt-32 pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`grid grid-cols-1 ${enableContactForm ? 'lg:grid-cols-2' : ''} gap-16`}>
+          <div className="grid grid-cols-1 gap-16">
             {/* Contact Info */}
-            <div className={isCenteredLayout ? 'max-w-3xl mx-auto w-full text-center' : ''}>
+            <div className="max-w-3xl mx-auto w-full text-center">
               <SectionTitle
                 title="Contatti"
                 subtitle="Parliamo del tuo evento"
-                centered={isCenteredLayout}
+                centered
               />
               
-              <p className={`text-text/80 mb-10 max-w-lg mx-auto ${isCenteredLayout ? 'text-center' : 'text-center md:text-left'}`}>
+              <p className="text-text/80 mb-10 max-w-lg mx-auto text-center">
                 Ogni evento è unico. Raccontami la tua idea e creiamo insieme 
                 un'esperienza musicale che renderà la tua serata indimenticabile.
               </p>
@@ -90,7 +87,7 @@ export function Contact() {
               {/* Social Links */}
               <div>
                 <p className="text-sm text-text-muted mb-4">Seguimi su</p>
-                <div className={`flex gap-4 ${isCenteredLayout ? 'justify-center' : ''}`}>
+                <div className="flex gap-4 justify-center">
                   <a
                     href={siteConfig.social.instagram}
                     target="_blank"
@@ -104,7 +101,7 @@ export function Contact() {
               </div>
 
               {/* Info Box */}
-              <div className={`mt-10 bg-accent/10 border border-accent/20 rounded-lg p-6 ${isCenteredLayout ? 'max-w-2xl mx-auto text-center' : ''}`}>
+              <div className="mt-10 bg-accent/10 border border-accent/20 rounded-lg p-6 max-w-2xl mx-auto text-center">
                 <h4 className="font-heading text-lg mb-2">Informazioni importanti</h4>
                 <ul className="text-sm text-text/70 space-y-2">
                   <li>• Rispondo a tutte le richieste entro 24 ore</li>
@@ -114,14 +111,6 @@ export function Contact() {
                 </ul>
               </div>
             </div>
-
-            {/* Contact Form (feature-flagged for quick rollback) */}
-            {enableContactForm && (
-              <div className="bg-secondary rounded-xl p-8 lg:p-10">
-                <h3 className="font-heading text-2xl mb-6">Invia una richiesta</h3>
-                <ContactForm />
-              </div>
-            )}
           </div>
         </div>
       </div>

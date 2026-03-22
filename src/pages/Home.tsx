@@ -1,11 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { HeroSection } from '../components/HeroSection';
-import { MusicPreview } from '../components/MusicPreview';
-import { VideoPreview } from '../components/VideoPreview';
-import { EventList } from '../components/EventList';
 import { CTASection } from '../components/CTASection';
 import { siteConfig } from '../data';
-import { enableEvents, enableHomeMusicPreview, enableHomeVideoPreview, enableMusicPage } from '../config/featureFlags';
 
 export function Home() {
   return (
@@ -16,9 +12,6 @@ export function Home() {
       </Helmet>
 
       <HeroSection />
-      {enableHomeMusicPreview && enableMusicPage && <MusicPreview />}
-      {enableHomeVideoPreview && <VideoPreview />}
-      {enableEvents && <EventList />}
       <CTASection showContactLine={false} />
     </>
   );

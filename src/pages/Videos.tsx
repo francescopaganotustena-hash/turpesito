@@ -4,7 +4,6 @@ import { siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
 import { CTASection } from '../components/CTASection';
 import { SmartVideo } from '../components/SmartVideo';
-import { enableMediaAutoplay, enableMediaLazyLoading } from '../config/featureFlags';
 
 const videoModules = import.meta.glob('../assets/videos/*.mp4', {
   eager: true,
@@ -62,8 +61,8 @@ export function Videos() {
                   <SmartVideo
                     className="w-full h-full object-cover"
                     src={video.src}
-                    enableLazyLoading={enableMediaLazyLoading}
-                    autoPlay={enableMediaAutoplay}
+                    enableLazyLoading
+                    autoPlay={false}
                     muted
                     playsInline
                     loop

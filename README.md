@@ -140,160 +140,17 @@ heroImages: { hero, biography, cta }
 3. **Social**: Aggiornare `siteConfig.social` con link reali
 4. **Eventi**: Modificare `events` (status: "upcoming" | "past")
 
-## Feature Flag Eventi (Rollback Rapido)
+## Configurazione Corrente
 
-La sezione Eventi e disattivata di default e rimossa da:
-- menu di navigazione
-- homepage (preview eventi)
-- pagina `/eventi` (redirect automatico a Home quando disattiva)
-
-Per riattivarla rapidamente:
-
-1. Crea un file `.env.local` nella root del progetto.
-2. Aggiungi:
-
-```bash
-VITE_ENABLE_EVENTS=true
-```
-
-3. Riavvia il dev server (`npm run dev`).
-
-Per disattivarla di nuovo, imposta `VITE_ENABLE_EVENTS=false` (o rimuovi la variabile).
-
-## Feature Flag Form Contatti (Rollback Rapido)
-
-La sezione "Invia una richiesta" in `/contatti` e disattivata di default.
-La pagina mantiene solo Booking con contatti diretti (email, telefono, zona, social).
-
-Per riattivare il form:
-
-1. Crea (o aggiorna) `.env.local` nella root del progetto.
-2. Aggiungi:
-
-```bash
-VITE_ENABLE_CONTACT_FORM=true
-```
-
-3. Riavvia il dev server (`npm run dev`).
-
-Per nasconderlo di nuovo, imposta `VITE_ENABLE_CONTACT_FORM=false` (o rimuovi la variabile).
-
-## Feature Flag Music Preview Home (Rollback Rapido)
-
-La sezione "Ultime uscite" in Home e disattivata di default.
-
-Per riattivarla:
-
-1. Crea (o aggiorna) `.env.local` nella root del progetto.
-2. Aggiungi:
-
-```bash
-VITE_ENABLE_HOME_MUSIC_PREVIEW=true
-```
-
-3. Riavvia il dev server (`npm run dev`).
-
-Per nasconderla di nuovo, imposta `VITE_ENABLE_HOME_MUSIC_PREVIEW=false` (o rimuovi la variabile).
-
-## Feature Flag Pagina Musica (Rollback Rapido)
-
-La pagina `/musica` e disattivata di default.
-Quando disattiva:
-- la voce "Musica" sparisce dalla navigazione
-- la route `/musica` fa redirect automatico a Home
-- i pulsanti Home che puntano a Musica vengono nascosti
-
-Per riattivarla:
-
-1. Crea (o aggiorna) `.env.local` nella root del progetto.
-2. Aggiungi:
-
-```bash
-VITE_ENABLE_MUSIC_PAGE=true
-```
-
-3. Riavvia il dev server (`npm run dev`).
-
-Per disattivarla di nuovo, imposta `VITE_ENABLE_MUSIC_PAGE=false` (o rimuovi la variabile).
-
-## Feature Flag Reel Instagram in Home (Rollback Rapido)
-
-Controlla la sezione "Video e Live" in Home:
-- `true` (default): card Reel Instagram (senza iframe)
-- `false`: preview video classica basata sui dati `videos`
-
-Per impostarla:
-
-1. Crea (o aggiorna) `.env.local` nella root del progetto.
-2. Aggiungi:
-
-```bash
-VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
-```
-
-3. Riavvia il dev server (`npm run dev`).
-
-Valore consigliato attuale: `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true`.
-
-## Feature Flag Pagina Video (Rollback Rapido)
-
-La pagina `/video` e attiva di default.
-Quando disattivata:
-- la voce "Video" sparisce dalla navigazione
-- la route `/video` fa redirect automatico a Home
-
-Per riattivarla:
-
-1. Crea (o aggiorna) `.env.local` nella root del progetto.
-2. Aggiungi:
-
-```bash
-VITE_ENABLE_VIDEO_PAGE=true
-```
-
-3. Riavvia il dev server (`npm run dev`).
-
-Per disattivarla di nuovo, imposta `VITE_ENABLE_VIDEO_PAGE=false`.
-
-## Feature Flag Scroll Reveal (Rollback Rapido)
-
-Controlla le animazioni in ingresso delle sezioni durante lo scroll.
-
-- `true` (default): reveal progressivo con animazione leggera
-- `false`: nessuna animazione reveal
-
-Per impostarla:
-
-1. Crea (o aggiorna) `.env.local` nella root del progetto.
-2. Aggiungi:
-
-```bash
-VITE_ENABLE_SCROLL_REVEAL=true
-```
-
-3. Riavvia il dev server (`npm run dev`).
-
-Per disattivarla di nuovo, imposta `VITE_ENABLE_SCROLL_REVEAL=false`.
-
-## Feature Flag WhatsApp Floating Button (Rollback Rapido)
-
-Controlla il pulsante WhatsApp flottante (in basso a destra).
-
-- `true` (default): pulsante visibile (versione discreta a sola icona)
-- `false`: pulsante nascosto
-
-Per impostarla:
-
-1. Crea (o aggiorna) `.env.local` nella root del progetto.
-2. Aggiungi:
-
-```bash
-VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
-```
-
-3. Riavvia il dev server (`npm run dev`).
-
-Per disattivarla di nuovo, imposta `VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=false`.
+Il sito e configurato con comportamento statico (senza feature flag runtime):
+- Home: Hero + CTA
+- Musica: disattivata (redirect a Home)
+- Eventi: disattivata (redirect a Home)
+- Video: attiva
+- Contatti: senza form, solo contatti diretti
+- Scroll reveal: attivo
+- Pulsante WhatsApp floating: attivo
+- Video pesanti: lazy loading attivo, autoplay disattivato
 
 ## Pubblicazione
 
@@ -319,7 +176,7 @@ Passi:
 
 Nota routing:
 - Il sito usa `HashRouter` per essere compatibile al 100% con GitHub Pages.
-- URL pagine: `/#/galleria`, `/#/contatti` (e `/#/musica`, `/#/eventi`, `/#/video` solo se abilitate via feature flag)
+- URL pagine attive: `/#/galleria`, `/#/contatti`, `/#/video`.
 
 ## SEO
 
@@ -333,7 +190,6 @@ Nota routing:
 
 - Il form contatti (quando attivato) simula invio lato frontend - collegare a backend reale (es. Formspree, EmailJS, Resend API).
 - La pagina `/video` usa file locali `src/assets/videos/*.mp4`: valutare compressione periodica per ridurre tempi di build/deploy.
-- Se usi `.env.local`, ricorda che e ignorato da Git: i default condivisi vanno mantenuti in `.env.example`.
 
 ```bash
 npm run build    # Production build

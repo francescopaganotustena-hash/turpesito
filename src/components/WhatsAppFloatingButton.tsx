@@ -1,12 +1,9 @@
 import { MessageCircle } from 'lucide-react';
 import { siteConfig } from '../data';
-import { enableWhatsAppFloatingButton } from '../config/featureFlags';
 
 const defaultMessage = encodeURIComponent('Ciao Gianluca, vorrei informazioni per il mio evento.');
 
 export function WhatsAppFloatingButton() {
-  if (!enableWhatsAppFloatingButton) return null;
-
   const whatsappNumber = siteConfig.phone.replace(/\D/g, '');
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${defaultMessage}`;
 
