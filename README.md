@@ -21,6 +21,17 @@ Ultimi interventi consolidati nel codice:
 - Rimossa infrastruttura rollback (feature flags, script e documenti collegati).
 - README riallineato alla struttura reale corrente del progetto.
 
+### Ultime modifiche salvate (2026-03-22)
+
+- Sostituiti i video in `src/assets/videos` con il set da:
+  - `/home/sviluppatore/Documenti/turpe selezionato`
+- Totale video ora in uso nel sito: **29** file (`1.mp4` ... `29.mp4`).
+- Verifica effettuata:
+  - build produzione OK
+  - pagina `/#/video` renderizza **29** card/video.
+- Commit pubblicato:
+  - `9c1b1a6` - `Replace site video assets with selected turpe set`
+
 ### Sezioni attive oggi
 
 - Home: Hero + CTA
