@@ -9,7 +9,7 @@ export function Contact() {
   const isCenteredLayout = !enableContactForm;
   const whatsappNumber = siteConfig.phone.replace(/\D/g, '');
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
-  const contactRowClass = `flex gap-4 ${isCenteredLayout ? 'justify-center text-left' : ''} items-center`;
+  const contactRowClass = `flex items-center gap-4 ${isCenteredLayout ? 'w-full max-w-sm mx-auto' : ''}`;
 
   return (
     <>
