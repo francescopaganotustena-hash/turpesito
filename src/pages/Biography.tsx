@@ -14,7 +14,7 @@ export function Biography() {
     { icon: Mic, value: '500+', label: 'Eventi dal vivo' },
     { icon: Award, value: 'Matrimoni', label: 'Specializzazione' },
     { icon: Music, value: '200+', label: 'Brani nel repertorio' },
-    { icon: Calendar, value: '10+', label: 'Anni di carriera' },
+    { icon: Calendar, value: '30+', label: 'Anni di carriera' },
   ];
 
   return (
