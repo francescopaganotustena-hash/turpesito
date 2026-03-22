@@ -110,7 +110,7 @@ export function Contact() {
                   <li>• Rispondo a tutte le richieste entro 24 ore</li>
                   <li>• Possibile incontro preliminare per conoscersi</li>
                   <li>• Preventivo personalizzato senza impegno</li>
-                  <li>• Disponibilita aperta per nuove date</li>
+                  <li>• Contattami per conoscere le mie disponibilità</li>
                 </ul>
               </div>
             </div>

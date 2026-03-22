@@ -38,7 +38,7 @@ export const siteConfig = {
   bookingSubtitle: "Contattami per il tuo evento",
   email: "",
   phone: "+39 338 2147345",
-  availability: "Disponibilita aperta per nuove date",
+  availability: "Contattami per conoscere le mie disponibilità",
   social: {
     instagram: "https://www.instagram.com/giangi_sax?igsh=NXp5MWdhdnJzcmVz",
     spotify: "https://open.spotify.com/artist/gianlucascala",

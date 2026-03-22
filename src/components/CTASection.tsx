@@ -19,7 +19,7 @@ export function CTASection({ showContactLine = true }: CTASectionProps) {
         <div className="inline-flex items-center gap-2 bg-primary/65 border border-accent/45 rounded-full px-4 py-2 mb-6">
           <Star className="w-4 h-4 text-accent" />
           <span className="text-sm text-accent font-semibold">
-            Disponibilita aperta per nuovi eventi
+            Contattami per conoscere le mie disponibilità
           </span>
         </div>
 
