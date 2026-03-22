@@ -84,9 +84,14 @@ export function Footer() {
           <p className="text-text-muted text-xs">
             © {currentYear} {siteConfig.name}. Tutti i diritti riservati.
           </p>
-          <p className="text-text-muted text-xs">
-            Progettato con passione per la musica
-          </p>
+          <div className="flex items-center gap-4 text-xs">
+            <Link to="/privacy-cookie" className="text-text-muted hover:text-accent transition-colors">
+              Privacy e Cookie Policy
+            </Link>
+            <p className="text-text-muted">
+              Progettato con passione per la musica
+            </p>
+          </div>
         </div>
       </div>
     </footer>

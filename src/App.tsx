@@ -9,6 +9,7 @@ import { Videos } from './pages/Videos';
 import { Events } from './pages/Events';
 import { Gallery } from './pages/Gallery';
 import { Contact } from './pages/Contact';
+import { PrivacyCookie } from './pages/PrivacyCookie';
 import { enableEvents, enableMusicPage, enableVideoPage } from './config/featureFlags';
 
 function ScrollToTop() {
@@ -44,6 +45,7 @@ function App() {
             />
             <Route path="galleria" element={<Gallery />} />
             <Route path="contatti" element={<Contact />} />
+            <Route path="privacy-cookie" element={<PrivacyCookie />} />
           </Route>
         </Routes>
       </HashRouter>
