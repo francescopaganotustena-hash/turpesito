@@ -10,6 +10,12 @@ import { SmartVideo } from '../components/SmartVideo';
 export function Biography() {
   const [firstName, ...rest] = siteConfig.name.split(' ');
   const lastName = rest.join(' ');
+  const stats = [
+    { icon: Mic, value: '500+', label: 'Eventi dal vivo' },
+    { icon: Award, value: 'Matrimoni', label: 'Specializzazione' },
+    { icon: Music, value: '200+', label: 'Brani nel repertorio' },
+    { icon: Calendar, value: '10+', label: 'Anni di carriera' },
+  ];
 
   return (
     <>
@@ -109,43 +115,20 @@ export function Biography() {
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4">
-                <Mic className="w-8 h-8 text-accent" />
-              </div>
-              <p className="font-heading text-5xl text-accent mb-2">
-                {biography.achievements[0].split(' ')[0]}
-              </p>
-              <p className="text-text-muted">Eventi dal vivo</p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4">
-                <Award className="w-8 h-8 text-accent" />
-              </div>
-              <p className="font-heading text-5xl text-accent mb-2">
-                {biography.achievements[1].split(' ')[0]}
-              </p>
-              <p className="text-text-muted">Specializzazione</p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4">
-                <Music className="w-8 h-8 text-accent" />
-              </div>
-              <p className="font-heading text-5xl text-accent mb-2">
-                {biography.achievements[2].split(' ')[0]}
-              </p>
-              <p className="text-text-muted">Brani nel repertorio</p>
-            </div>
-
-            <div className="text-center p-6">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4">
-                <Calendar className="w-8 h-8 text-accent" />
-              </div>
-              <p className="font-heading text-5xl text-accent mb-2">10+</p>
-              <p className="text-text-muted">Anni di carriera</p>
-            </div>
+            {stats.map((stat) => {
+              const Icon = stat.icon;
+              return (
+                <div key={stat.label} className="text-center p-6 h-full flex flex-col items-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-accent/10 rounded-full mb-4 shrink-0">
+                    <Icon className="w-8 h-8 text-accent" />
+                  </div>
+                  <p className="font-heading text-4xl md:text-5xl text-accent mb-2 leading-none whitespace-nowrap">
+                    {stat.value}
+                  </p>
+                  <p className="text-text-muted">{stat.label}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
