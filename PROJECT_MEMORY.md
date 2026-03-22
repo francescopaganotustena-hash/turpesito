@@ -22,6 +22,7 @@
     - `VITE_ENABLE_MUSIC_PAGE=false`
     - `VITE_ENABLE_VIDEO_PAGE=true`
     - `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true`
+    - `VITE_ENABLE_HOME_VIDEO_PREVIEW=false`
     - `VITE_ENABLE_SCROLL_REVEAL=true` (default codice)
     - `VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true` (default codice)
 
@@ -272,6 +273,25 @@ Feature flags attive nel progetto:
   - Effetto: nascosta la sezione "Ultime uscite" in Home.
 - `VITE_ENABLE_MUSIC_PAGE=false`
   - Effetto: pagina `/musica` disattivata (redirect `/`), voce menu Musica nascosta, CTA hero verso Musica nascosta.
+
+## Aggiornamento funzionale recente (2026-03-22): rimozione sezione "Video e Live" dalla Home con rollback rapido
+Obiettivo operativo richiesto:
+- Rimuovere completamente dalla homepage la sezione visuale "Video e Live" (card reel/video), mantenendo ripristino veloce.
+
+Implementazione:
+- Nuova feature flag in `src/config/featureFlags.ts`:
+  - `VITE_ENABLE_HOME_VIDEO_PREVIEW`
+  - default: `false`
+- Rendering condizionale in `src/pages/Home.tsx`:
+  - `{enableHomeVideoPreview && <VideoPreview />}`
+- Configurazione aggiornata in:
+  - `.env.example`
+  - `.env.local`
+  - `rollback.md`
+
+Rollback immediato:
+- Impostare `VITE_ENABLE_HOME_VIDEO_PREVIEW=true` in `.env.local`
+- Riavviare il server Vite (`npm run dev` oppure `scripts/spegni-sito.sh` + `scripts/avvia-sito.sh`)
 
 File principali coinvolti dalle disattivazioni:
 - Routing e redirect:

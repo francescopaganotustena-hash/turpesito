@@ -9,6 +9,7 @@ Stato attuale predefinito:
 - Pagina Musica (/musica): OFF
 - Pagina Video (/video): ON
 - Preview Reel Instagram in Home: ON
+- Sezione "Video e Live" in Home: OFF
 - Scroll reveal sezioni: ON
 - Pulsante WhatsApp floating: ON (versione discreta a sola icona)
 - Media lazy loading: ON
@@ -67,6 +68,11 @@ Nota importante:
 - `true`: in Home mostra card Reel Instagram collegate al profilo.
 - File coinvolti: `src/config/featureFlags.ts`, `src/components/VideoPreview.tsx`, `src/data/index.ts`.
 
+`VITE_ENABLE_HOME_VIDEO_PREVIEW`
+- `false`: nasconde completamente la sezione "Video e Live" dalla homepage.
+- `true`: riattiva la sezione "Video e Live" in Home.
+- File coinvolti: `src/config/featureFlags.ts`, `src/pages/Home.tsx`, `src/components/VideoPreview.tsx`.
+
 `VITE_ENABLE_SCROLL_REVEAL`
 - `false`: disattiva tutte le animazioni reveal in ingresso allo scroll.
 - `true`: abilita reveal progressivo delle sezioni (`main section`) con Intersection Observer.
@@ -99,6 +105,7 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
 VITE_ENABLE_VIDEO_PAGE=true
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_HOME_VIDEO_PREVIEW=false
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 VITE_ENABLE_MEDIA_LAZY_LOADING=true
@@ -113,6 +120,7 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=true
 VITE_ENABLE_MUSIC_PAGE=true
 VITE_ENABLE_VIDEO_PAGE=false
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_HOME_VIDEO_PREVIEW=false
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 VITE_ENABLE_MEDIA_LAZY_LOADING=true
@@ -127,6 +135,7 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
 VITE_ENABLE_VIDEO_PAGE=false
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_HOME_VIDEO_PREVIEW=false
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 VITE_ENABLE_MEDIA_LAZY_LOADING=true
@@ -141,6 +150,7 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=false
 VITE_ENABLE_MUSIC_PAGE=false
 VITE_ENABLE_VIDEO_PAGE=false
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_HOME_VIDEO_PREVIEW=false
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 VITE_ENABLE_MEDIA_LAZY_LOADING=true
@@ -155,6 +165,7 @@ VITE_ENABLE_HOME_MUSIC_PREVIEW=true
 VITE_ENABLE_MUSIC_PAGE=true
 VITE_ENABLE_VIDEO_PAGE=true
 VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true
+VITE_ENABLE_HOME_VIDEO_PREVIEW=true
 VITE_ENABLE_SCROLL_REVEAL=true
 VITE_ENABLE_WHATSAPP_FLOATING_BUTTON=true
 VITE_ENABLE_MEDIA_LAZY_LOADING=true
@@ -202,6 +213,9 @@ Se `VITE_ENABLE_HOME_MUSIC_PREVIEW=false`:
 Se `VITE_ENABLE_VIDEO_PAGE=false`:
 - Menu non deve mostrare "Video".
 - `/#/video` deve redirigere su Home.
+
+Se `VITE_ENABLE_HOME_VIDEO_PREVIEW=false`:
+- Home non deve mostrare la sezione "Video e Live".
 
 Se `VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=true`:
 - In Home deve comparire la sezione "Video e Live" con card Reel Instagram.

@@ -22,6 +22,9 @@ export const enableVideoPage = parseBooleanEnv(import.meta.env.VITE_ENABLE_VIDEO
 // Card Reel Instagram in Home attive di default; disattivale con VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS=false
 export const enableInstagramVideoEmbeds = parseBooleanEnv(import.meta.env.VITE_ENABLE_INSTAGRAM_VIDEO_EMBEDS, true);
 
+// Sezione "Video e Live" in Home disattivata di default; attivala con VITE_ENABLE_HOME_VIDEO_PREVIEW=true
+export const enableHomeVideoPreview = parseBooleanEnv(import.meta.env.VITE_ENABLE_HOME_VIDEO_PREVIEW, false);
+
 // Scroll reveal attivo di default; disattivalo con VITE_ENABLE_SCROLL_REVEAL=false
 export const enableScrollReveal = parseBooleanEnv(import.meta.env.VITE_ENABLE_SCROLL_REVEAL, true);
 
