@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Music, Instagram, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Music, Instagram, Phone, MessageCircle } from 'lucide-react';
 import { siteConfig } from '../data';
 
 export function Footer() {
@@ -18,7 +18,7 @@ export function Footer() {
               <span className="font-heading text-xl font-medium">{siteConfig.name}</span>
             </Link>
             <p className="text-text-muted text-sm leading-relaxed max-w-md mb-4">
-              {siteConfig.tagline}. {siteConfig.subtitle.toLowerCase()} disponibile per eventi in tutta Italia.
+              {siteConfig.tagline}. {siteConfig.subtitle.toLowerCase()}.
             </p>
             <div className="flex gap-4">
               <a
@@ -60,10 +60,6 @@ export function Footer() {
                 <a href={`tel:${siteConfig.phone}`} className="hover:text-accent transition-colors">
                   {siteConfig.phone}
                 </a>
-              </li>
-              <li className="flex items-start gap-2 text-text-muted text-sm">
-                <MapPin className="w-4 h-4 text-accent mt-0.5" />
-                <span>{siteConfig.location}</span>
               </li>
               <li className="flex items-center gap-2 text-text-muted text-sm">
                 <MessageCircle className="w-4 h-4 text-accent" />

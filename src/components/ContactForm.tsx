@@ -8,8 +8,6 @@ interface FormData {
   phone: string;
   eventType: string;
   date: string;
-  city: string;
-  location: string;
   message: string;
 }
 
@@ -27,8 +25,6 @@ export function ContactForm() {
     phone: '',
     eventType: '',
     date: '',
-    city: '',
-    location: '',
     message: '',
   });
   const [errors, setErrors] = useState<FormErrors>({});
@@ -81,8 +77,6 @@ export function ContactForm() {
       phone: '',
       eventType: '',
       date: '',
-      city: '',
-      location: '',
       message: '',
     });
 
@@ -185,7 +179,7 @@ export function ContactForm() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6">
         <div>
           <label htmlFor="date" className="block text-sm font-medium mb-2">
             Data Evento
@@ -197,36 +191,6 @@ export function ContactForm() {
             value={formData.date}
             onChange={handleChange}
             className="w-full bg-secondary border border-accent/20 rounded px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-accent"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="city" className="block text-sm font-medium mb-2">
-            Città
-          </label>
-          <input
-            type="text"
-            id="city"
-            name="city"
-            value={formData.city}
-            onChange={handleChange}
-            className="w-full bg-secondary border border-accent/20 rounded px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-accent"
-            placeholder="Milano"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="location" className="block text-sm font-medium mb-2">
-            Location
-          </label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            className="w-full bg-secondary border border-accent/20 rounded px-4 py-3 text-text focus:outline-none focus:ring-2 focus:ring-accent"
-            placeholder="Villa Melzi"
           />
         </div>
       </div>

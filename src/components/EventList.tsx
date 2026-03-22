@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Clock } from 'lucide-react';
+import { Calendar, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { events } from '../data';
 import { SectionTitle } from './SectionTitle';
@@ -42,10 +42,6 @@ export function EventList() {
                 <div className="flex items-center justify-center gap-2">
                   <Clock className="w-4 h-4 text-accent" />
                   <span>{event.time}</span>
-                </div>
-                <div className="flex items-center justify-center gap-2">
-                  <MapPin className="w-4 h-4 text-accent" />
-                  <span>{event.location}, {event.city}</span>
                 </div>
               </div>
 

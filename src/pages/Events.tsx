@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Calendar, MapPin, Clock, CheckCircle } from 'lucide-react';
+import { Calendar, Clock, CheckCircle } from 'lucide-react';
 import { events, siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
 import { CTASection } from '../components/CTASection';
@@ -58,10 +58,6 @@ export function Events() {
                       <Clock className="w-4 h-4 text-accent" />
                       <span>{event.time}</span>
                     </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <MapPin className="w-4 h-4 text-accent" />
-                      <span>{event.location}</span>
-                    </div>
                   </div>
 
                   <p className="text-text/70 text-sm text-center">{event.description}</p>
@@ -106,10 +102,6 @@ export function Events() {
                             year: 'numeric',
                           })}
                         </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-accent/50" />
-                        <span>{event.city}</span>
                       </div>
                     </div>
                   </div>

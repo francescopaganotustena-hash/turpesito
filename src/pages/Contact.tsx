@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet-async';
-import { Phone, MapPin, Instagram, MessageCircle } from 'lucide-react';
+import { Phone, Instagram, MessageCircle } from 'lucide-react';
 import { ContactForm } from '../components/ContactForm';
 import { siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
@@ -71,11 +71,18 @@ export function Contact() {
 
                 <div className={contactRowClass}>
                   <div className="bg-secondary p-3 rounded-lg shrink-0">
-                    <MapPin className="w-5 h-5 text-accent" />
+                    <Instagram className="w-5 h-5 text-accent" />
                   </div>
                   <div className={contactTextClass}>
-                    <p className="text-sm text-text-muted mb-1">Zona</p>
-                    <p className="text-lg">{siteConfig.location}</p>
+                    <p className="text-sm text-text-muted mb-1">Instagram</p>
+                    <a
+                      href={siteConfig.social.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-lg hover:text-accent transition-colors"
+                    >
+                      Segui il profilo ufficiale
+                    </a>
                   </div>
                 </div>
               </div>
@@ -103,7 +110,7 @@ export function Contact() {
                   <li>• Rispondo a tutte le richieste entro 24 ore</li>
                   <li>• Possibile incontro preliminare per conoscersi</li>
                   <li>• Preventivo personalizzato senza impegno</li>
-                  <li>• Disponibile per eventi in tutta Italia</li>
+                  <li>• Disponibilita aperta per nuove date</li>
                 </ul>
               </div>
             </div>
