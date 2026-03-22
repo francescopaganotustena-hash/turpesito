@@ -38,8 +38,8 @@ export const siteConfig = {
   bookingSubtitle: "Contattami per il tuo evento",
   email: "",
   phone: "+39 338 2147345",
-  location: "Napoli e provincia",
-  availability: "Disponibile per eventi a Napoli e provincia",
+  location: "Italia",
+  availability: "Disponibile per eventi in tutta Italia",
   social: {
     instagram: "https://www.instagram.com/giangi_sax?igsh=NXp5MWdhdnJzcmVz",
     spotify: "https://open.spotify.com/artist/gianlucascala",

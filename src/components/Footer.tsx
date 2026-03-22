@@ -18,7 +18,7 @@ export function Footer() {
               <span className="font-heading text-xl font-medium">{siteConfig.name}</span>
             </Link>
             <p className="text-text-muted text-sm leading-relaxed max-w-md mb-4">
-              {siteConfig.tagline}. {siteConfig.subtitle.toLowerCase()} disponibile per eventi a Napoli e provincia.
+              {siteConfig.tagline}. {siteConfig.subtitle.toLowerCase()} disponibile per eventi in tutta Italia.
             </p>
             <div className="flex gap-4">
               <a
