@@ -45,7 +45,7 @@ export function HeroSection() {
             {siteConfig.description.split('.')[0]}.
           </p>
 
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center w-full px-4">
+          <div className="mt-56 sm:mt-60 md:mt-64 flex flex-col sm:flex-row gap-4 justify-center w-full px-4">
             {enableMusicPage && (
               <Link
                 to="/musica"
