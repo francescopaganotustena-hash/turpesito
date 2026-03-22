@@ -9,7 +9,8 @@ export function Contact() {
   const isCenteredLayout = !enableContactForm;
   const whatsappNumber = siteConfig.phone.replace(/\D/g, '');
   const whatsappUrl = `https://wa.me/${whatsappNumber}`;
-  const contactRowClass = `flex items-center gap-4 ${isCenteredLayout ? 'w-full max-w-sm mx-auto' : ''}`;
+  const contactRowClass = `flex items-center gap-4 ${isCenteredLayout ? 'justify-center w-full' : ''}`;
+  const contactTextClass = isCenteredLayout ? 'w-60 text-left' : '';
 
   return (
     <>
@@ -39,7 +40,7 @@ export function Contact() {
                   <div className="bg-secondary p-3 rounded-lg shrink-0">
                     <Phone className="w-5 h-5 text-accent" />
                   </div>
-                  <div>
+                  <div className={contactTextClass}>
                     <p className="text-sm text-text-muted mb-1">Telefono</p>
                     <a
                       href={`tel:${siteConfig.phone}`}
@@ -54,7 +55,7 @@ export function Contact() {
                   <div className="bg-secondary p-3 rounded-lg shrink-0">
                     <MessageCircle className="w-5 h-5 text-accent" />
                   </div>
-                  <div>
+                  <div className={contactTextClass}>
                     <p className="text-sm text-text-muted mb-1">WhatsApp</p>
                     <a
                       href={whatsappUrl}
@@ -72,7 +73,7 @@ export function Contact() {
                   <div className="bg-secondary p-3 rounded-lg shrink-0">
                     <MapPin className="w-5 h-5 text-accent" />
                   </div>
-                  <div>
+                  <div className={contactTextClass}>
                     <p className="text-sm text-text-muted mb-1">Zona</p>
                     <p className="text-lg">{siteConfig.location}</p>
                   </div>
