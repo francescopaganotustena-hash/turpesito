@@ -6,8 +6,8 @@ Questo README descrive lo stato reale del progetto e va usato come riferimento o
 ## Stato Attuale (baseline di lavoro)
 
 - Stack stabile: React + TypeScript + Vite + Tailwind CSS.
-- Deploy: GitHub Pages via GitHub Actions.
-- Router: `HashRouter` (compatibile con Pages).
+- Deploy: Vercel (`https://gianlucascala.vercel.app`).
+- Router: `BrowserRouter` (URL puliti SEO-friendly).
 - Strategia rollback: rimossa dal progetto (niente feature flag runtime, niente script di profilo rollback).
 - Comportamento attuale fissato direttamente nel codice.
 
@@ -31,6 +31,26 @@ Ultimi interventi consolidati nel codice:
   - pagina `/#/video` renderizza **29** card/video.
 - Commit pubblicato:
   - `9c1b1a6` - `Replace site video assets with selected turpe set`
+
+### Memoria Sessione SEO (2026-03-23)
+
+- Inserito meta tag Google Search Console in `index.html`:
+  - `<meta name="google-site-verification" content="X9yq2K6CA4byBe64b2mTg4_zxoBvkNg2L7BADaGapzI" />`
+- Attivata generazione automatica sitemap/robots in prebuild:
+  - `scripts/generate-sitemap.mjs`
+  - script npm: `prebuild`
+- File pubblici:
+  - `public/sitemap.xml`
+  - `public/robots.txt`
+- Configurato rewrite SPA per Vercel:
+  - `vercel.json`
+- Dominio sitemap in uso:
+  - `https://gianlucascala.vercel.app/sitemap.xml`
+- Verifiche fatte:
+  - `sitemap.xml` -> HTTP 200, `content-type: application/xml`
+  - `robots.txt` -> HTTP 200 e contiene la riga sitemap corretta.
+- Nota operativa Search Console:
+  - se appare ancora "Impossibile recuperare", rimuovere la sitemap e reinviarla; spesso è un ritardo temporaneo post-deploy.
 
 ### Sezioni attive oggi
 
@@ -163,11 +183,8 @@ npm run preview
 
 ## Deploy
 
-Deploy automatico su GitHub Pages tramite workflow:
-
-- [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml)
-
-Ogni push su `main` genera la nuova pubblicazione.
+Deploy su Vercel collegato al branch `main`.
+Ogni push su `main` aggiorna la produzione.
 
 ## Convenzioni Operative (da mantenere)
 
