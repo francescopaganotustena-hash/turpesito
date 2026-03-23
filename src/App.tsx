@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { HashRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
 import { Home } from './pages/Home';
@@ -22,7 +22,7 @@ function ScrollToTop() {
 function App() {
   return (
     <HelmetProvider>
-      <HashRouter>
+      <BrowserRouter>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -36,7 +36,7 @@ function App() {
             <Route path="privacy-cookie" element={<PrivacyCookie />} />
           </Route>
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </HelmetProvider>
   );
 }
