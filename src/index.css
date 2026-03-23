@@ -76,6 +76,29 @@
   }
 }
 
+@keyframes contactScoreDrift {
+  0% {
+    transform: translate3d(-28%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes contactNotesFlow {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.24;
+  }
+  50% {
+    opacity: 0.42;
+  }
+  100% {
+    transform: translate3d(-30%, 0, 0);
+    opacity: 0.24;
+  }
+}
+
 .hero-bg-position {
   background-position: 82% 0% !important;
 }
@@ -88,6 +111,67 @@
 
 .cta-bg-position {
   background-position: 82% 18%;
+}
+
+.contact-music-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(65% 45% at 12% 18%, rgba(212, 165, 116, 0.08), transparent 72%),
+    radial-gradient(55% 40% at 86% 80%, rgba(212, 165, 116, 0.06), transparent 74%),
+    linear-gradient(180deg, rgba(10, 10, 10, 0.95), rgba(10, 10, 10, 0.9));
+}
+
+.contact-staff {
+  position: absolute;
+  left: -30%;
+  width: 160%;
+  height: 46%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(212, 165, 116, 0.13) 0 1px,
+    transparent 1px 13px,
+    transparent 13px 52px
+  );
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.95) 12%, rgba(0, 0, 0, 0.95) 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.95) 12%, rgba(0, 0, 0, 0.95) 88%, transparent 100%);
+}
+
+.contact-staff-a {
+  top: 12%;
+  animation: contactScoreDrift 18s linear infinite;
+}
+
+.contact-staff-b {
+  top: 52%;
+  opacity: 0.5;
+  animation: contactScoreDrift 24s linear infinite reverse;
+}
+
+.contact-notes {
+  position: absolute;
+  left: -30%;
+  width: 160%;
+  height: 220px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='120' viewBox='0 0 460 120'%3E%3Cg fill='%23d4a574' opacity='0.86'%3E%3Cellipse cx='36' cy='78' rx='9' ry='6.5'/%3E%3Crect x='43' y='42' width='2.6' height='36' rx='1.3'/%3E%3Cellipse cx='112' cy='58' rx='8.5' ry='6'/%3E%3Crect x='119' y='26' width='2.6' height='32' rx='1.3'/%3E%3Cellipse cx='188' cy='82' rx='9.5' ry='6.8'/%3E%3Crect x='196' y='46' width='2.6' height='36' rx='1.3'/%3E%3Cellipse cx='266' cy='64' rx='9' ry='6.5'/%3E%3Crect x='273' y='30' width='2.6' height='34' rx='1.3'/%3E%3Cellipse cx='342' cy='88' rx='9.5' ry='6.8'/%3E%3Crect x='350' y='52' width='2.6' height='36' rx='1.3'/%3E%3Cellipse cx='418' cy='60' rx='8.5' ry='6'/%3E%3Crect x='425' y='28' width='2.6' height='32' rx='1.3'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 460px 120px;
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.95) 12%, rgba(0, 0, 0, 0.95) 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.95) 12%, rgba(0, 0, 0, 0.95) 88%, transparent 100%);
+}
+
+.contact-notes-a {
+  top: 18%;
+  opacity: 0.5;
+  animation: contactNotesFlow 14s linear infinite;
+}
+
+.contact-notes-b {
+  top: 60%;
+  opacity: 0.35;
+  animation: contactNotesFlow 19s linear infinite reverse;
 }
 
 .scroll-reveal-ready {
@@ -114,6 +198,13 @@
 
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-animated {
+    animation: none;
+  }
+
+  .contact-music-bg::before,
+  .contact-music-bg::after,
+  .contact-staff,
+  .contact-notes {
     animation: none;
   }
 

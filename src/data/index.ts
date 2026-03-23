@@ -39,7 +39,7 @@ export const siteConfig = {
   phone: "+39 338 2147345",
   availability: "Contattami per conoscere le mie disponibilità",
   social: {
-    instagram: "https://www.instagram.com/giangi_sax?igsh=NXp5MWdhdnJzcmVz",
+    instagram: "https://www.instagram.com/giangi_sax",
     spotify: "https://open.spotify.com/artist/gianlucascala",
   },
   navigation: [

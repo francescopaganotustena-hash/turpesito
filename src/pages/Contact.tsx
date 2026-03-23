@@ -16,8 +16,14 @@ export function Contact() {
         <meta name="description" content={`Contatta ${siteConfig.name} per richiedere un preventivo per il tuo evento. Matrimoni, serate private, eventi aziendali.`} />
       </Helmet>
 
-      <div className="pt-32 pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative overflow-hidden pt-32 pb-24">
+        <div className="contact-music-bg" aria-hidden="true">
+          <div className="contact-staff contact-staff-a" />
+          <div className="contact-staff contact-staff-b" />
+          <div className="contact-notes contact-notes-a" />
+          <div className="contact-notes contact-notes-b" />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-16">
             {/* Contact Info */}
             <div className="max-w-3xl mx-auto w-full text-center">
