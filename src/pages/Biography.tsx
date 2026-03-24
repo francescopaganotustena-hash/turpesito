@@ -3,12 +3,11 @@ import { Award, Mic, Calendar, Music } from 'lucide-react';
 import { biography, heroImages, siteConfig } from '../data';
 import { SectionTitle } from '../components/SectionTitle';
 import { CTASection } from '../components/CTASection';
-import biographyVideo from '../assets/site-photos/biografia-sax.mp4';
-import { SmartVideo } from '../components/SmartVideo';
 
 export function Biography() {
   const [firstName, ...rest] = siteConfig.name.split(' ');
   const lastName = rest.join(' ');
+  const biographyText = [biography.intro, ...biography.paragraphs].join(' ');
   const stats = [
     { icon: Mic, value: '500+', label: 'Eventi dal vivo' },
     { icon: Award, value: 'Matrimoni', label: 'Specializzazione' },
@@ -47,11 +46,8 @@ export function Biography() {
                   </>
                 )}
               </h1>
-              <p className="text-lg md:text-xl text-text-muted mb-8">
-                {siteConfig.subtitle}
-              </p>
               <p className="text-base md:text-lg text-text/80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                {biography.intro}
+                {biographyText}
               </p>
             </div>
 
@@ -61,44 +57,6 @@ export function Biography() {
                 alt={siteConfig.name}
                 className="rounded-lg shadow-2xl"
               />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Biography Content */}
-      <section className="py-24 bg-primary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <SectionTitle
-                title="Il Percorso"
-                subtitle="Dalla formazione alla professione"
-              />
-
-              <div className="space-y-8">
-                {biography.paragraphs.map((paragraph, index) => (
-                  <p key={index} className="text-lg text-text/80 leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </div>
-
-            <div className="w-full">
-              <div className="rounded-lg overflow-hidden border border-accent/20 shadow-2xl bg-secondary">
-                <SmartVideo
-                  className="w-full h-auto"
-                  src={biographyVideo}
-                  enableLazyLoading
-                  autoPlay={false}
-                  muted
-                  playsInline
-                  loop
-                  controls
-                  preload="metadata"
-                />
-              </div>
             </div>
           </div>
         </div>

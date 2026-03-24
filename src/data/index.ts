@@ -52,12 +52,13 @@ export const siteConfig = {
 };
 
 export const biography = {
-  intro: "Gianluca Scala è un cantante e musicista italiano che ha costruito la sua carriera sull'arte della performance dal vivo. Con un percorso che attraversa generi musicali diversi, ha saputo creare uno stile personale fatto di eleganza vocale, presenza scenica e capacità di coinvolgere il pubblico.",
+  intro: "Ciao, mi chiamo Gianluca.",
   
   paragraphs: [
-    "La sua voce ha accompagnato cerimonie di matrimonio, animato serate di gala, fatto vibrare i palchi di locali esclusivi e raccontato storie attraverso la musica italiana e internazionale. Ogni esibizione è un viaggio emotivo che lascia un'impronta indelebile.",
-    "Formatosi presso istituti musicali di prestigio, Gianluca ha affinato la sua tecnica vocale e la sua sensibilità artistica nel corso di anni di pratica e palchi. Il suo repertorio spazia dai grandi classici della canzone italiana ai brani pop e jazz più amati, fino alle hit contemporanee.",
-    "Ma ciò che distingue davvero Gianluca è la sua capacità di comprendere ogni evento: leggere l'atmosfera, interpretare i desideri del pubblico, creare un'esperienza unica e irripetibile. Perché ogni serata merita la sua colonna sonora perfetta.",
+    "Ho iniziato a suonare da ragazzino, per un dna familiare che mi spingeva in maniera appassionata verso gli strumenti musicali.",
+    "Ben presto, l'accompagnamento armonico della chitarra e della tastiera, sono diventate un vuoto da colmare con la melodia... e quale modo più immediato se non la voce?",
+    "Da allora, la musica è diventata urgenza comunicativa... trasmettere la mia passione al pubblico per condividerne la gioia e il divertimento!",
+    "Eh sì, perché ancora oggi, dopo migliaia di eventi e serate, riesco ancora a divertirmi con il mio pubblico!",
   ],
   
   achievements: [
