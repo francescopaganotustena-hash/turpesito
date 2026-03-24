@@ -52,14 +52,9 @@ export const siteConfig = {
 };
 
 export const biography = {
-  intro: "Ciao, mi chiamo Gianluca.",
+  intro: "Ciao, mi chiamo Gianluca. Ho iniziato a suonare da ragazzino, per un DNA familiare che mi spingeva, in maniera appassionata, verso gli strumenti musicali. Ben presto, l'accompagnamento armonico della chitarra e della tastiera è diventato un vuoto da colmare con la melodia... e quale modo più immediato, se non la voce? Da allora, la musica è diventata un'urgenza comunicativa: trasmettere la mia passione al pubblico, per condividerne la gioia e il divertimento! Eh sì, perché ancora oggi, dopo migliaia di eventi e serate, riesco ancora a divertirmi con il mio pubblico!",
   
-  paragraphs: [
-    "Ho iniziato a suonare da ragazzino, per un dna familiare che mi spingeva in maniera appassionata verso gli strumenti musicali.",
-    "Ben presto, l'accompagnamento armonico della chitarra e della tastiera, sono diventate un vuoto da colmare con la melodia... e quale modo più immediato se non la voce?",
-    "Da allora, la musica è diventata urgenza comunicativa... trasmettere la mia passione al pubblico per condividerne la gioia e il divertimento!",
-    "Eh sì, perché ancora oggi, dopo migliaia di eventi e serate, riesco ancora a divertirmi con il mio pubblico!",
-  ],
+  paragraphs: [],
   
   achievements: [
     "Oltre 500 eventi dal vivo",
