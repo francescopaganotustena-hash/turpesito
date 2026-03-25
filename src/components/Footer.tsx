@@ -78,7 +78,7 @@ export function Footer() {
 
         <div className="border-t border-accent/10 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-text-muted text-xs">
-            © {currentYear} {siteConfig.name}. Tutti i diritti riservati.
+            © {currentYear} Gianluca Scala. Tutti i diritti riservati.
           </p>
           <div className="flex items-center gap-4 text-xs">
             <Link to="/privacy-cookie" className="text-text-muted hover:text-accent transition-colors">
