@@ -36,14 +36,6 @@ export function HeroSection() {
             )}
           </h1>
 
-          <p className="text-lg sm:text-xl md:text-2xl text-text-muted max-w-2xl mx-auto mb-4 font-light">
-            {siteConfig.tagline}
-          </p>
-
-          <p className="text-base md:text-lg text-text/70 max-w-xl mx-auto mb-10">
-            {siteConfig.description.split('.')[0]}.
-          </p>
-
           <div className="mt-56 sm:mt-60 md:mt-64 flex flex-col sm:flex-row gap-4 justify-center w-full px-4">
             <Link
               to="/contatti"
