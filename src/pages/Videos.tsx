@@ -28,7 +28,6 @@ export function Videos() {
   return (
     <>
       <Helmet>
-        <title>Video | {siteConfig.name}</title>
         <meta name="description" content={`Video live di ${siteConfig.name}. Raccolta completa delle performance embedded nel sito.`} />
       </Helmet>
 

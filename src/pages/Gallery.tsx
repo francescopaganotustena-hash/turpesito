@@ -7,7 +7,6 @@ export function Gallery() {
   return (
     <>
       <Helmet>
-        <title>Galleria | {siteConfig.name}</title>
         <meta name="description" content={`Galleria fotografica di ${siteConfig.name}. Live performance e backstage.`} />
       </Helmet>
 

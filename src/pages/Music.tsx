@@ -8,7 +8,6 @@ export function Music() {
   return (
     <>
       <Helmet>
-        <title>Musica | {siteConfig.name}</title>
         <meta name="description" content={`Musica di ${siteConfig.name} - Ascolta i brani originali e le cover del repertoire.`} />
       </Helmet>
 

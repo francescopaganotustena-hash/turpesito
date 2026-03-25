@@ -2,6 +2,7 @@ import { Suspense, lazy, useEffect } from 'react';
 import { BrowserRouter, Navigate, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from './components/Layout';
+import { siteConfig } from './data';
 
 const Home = lazy(() => import('./pages/Home').then((module) => ({ default: module.Home })));
 const Biography = lazy(() => import('./pages/Biography').then((module) => ({ default: module.Biography })));
@@ -15,6 +16,34 @@ function ScrollToTop() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  useEffect(() => {
+    const defaultTitle = `${siteConfig.name} | ${siteConfig.subtitle}`;
+
+    switch (pathname) {
+      case '/':
+        document.title = defaultTitle;
+        break;
+      case '/biografia':
+        document.title = `Biografia | ${siteConfig.name}`;
+        break;
+      case '/video':
+        document.title = `Video | ${siteConfig.name}`;
+        break;
+      case '/galleria':
+        document.title = `Galleria | ${siteConfig.name}`;
+        break;
+      case '/contatti':
+        document.title = `Contatti | ${siteConfig.name}`;
+        break;
+      case '/privacy-cookie':
+        document.title = `Privacy e Cookie Policy | ${siteConfig.name}`;
+        break;
+      default:
+        document.title = defaultTitle;
+        break;
+    }
   }, [pathname]);
 
   return null;

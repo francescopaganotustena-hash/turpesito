@@ -18,7 +18,6 @@ export function Biography() {
   return (
     <>
       <Helmet>
-        <title>Biografia | {siteConfig.name}</title>
         <meta name="description" content={`Biografia di ${siteConfig.name} - ${siteConfig.subtitle}. ${biography.intro}`} />
       </Helmet>
 

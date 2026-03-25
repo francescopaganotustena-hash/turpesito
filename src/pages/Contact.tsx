@@ -12,7 +12,6 @@ export function Contact() {
   return (
     <>
       <Helmet>
-        <title>Contatti | {siteConfig.name}</title>
         <meta name="description" content={`Contatta ${siteConfig.name} per richiedere un preventivo per il tuo evento. Matrimoni, serate private, eventi aziendali.`} />
       </Helmet>
 

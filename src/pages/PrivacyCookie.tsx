@@ -6,7 +6,6 @@ export function PrivacyCookie() {
   return (
     <>
       <Helmet>
-        <title>Privacy e Cookie Policy | {siteConfig.name}</title>
         <meta
           name="description"
           content={`Informativa privacy e cookie policy del sito di ${siteConfig.name}.`}

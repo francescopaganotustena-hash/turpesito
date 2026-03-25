@@ -7,7 +7,6 @@ export function Home() {
   return (
     <>
       <Helmet>
-        <title>{siteConfig.name} | {siteConfig.subtitle}</title>
         <meta name="description" content={siteConfig.description} />
       </Helmet>
 

@@ -11,7 +11,6 @@ export function Events() {
   return (
     <>
       <Helmet>
-        <title>Eventi | {siteConfig.name}</title>
         <meta name="description" content={`Prossimi eventi di ${siteConfig.name}. Matrimoni, serate private, eventi aziendali e live performance.`} />
       </Helmet>
       
