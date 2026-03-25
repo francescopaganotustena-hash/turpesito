@@ -36,7 +36,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading text-lg mb-4">Navigazione</h4>
+            <h3 className="font-heading text-lg mb-4">Navigazione</h3>
             <ul className="space-y-2">
               {siteConfig.navigation.map((item) => (
                 <li key={item.path}>
@@ -53,7 +53,7 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="font-heading text-lg mb-4">Contatti</h4>
+            <h3 className="font-heading text-lg mb-4">Contatti</h3>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-text-muted text-sm">
                 <Phone className="w-4 h-4 text-accent" />

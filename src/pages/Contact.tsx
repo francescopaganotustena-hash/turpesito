@@ -108,7 +108,7 @@ export function Contact() {
 
               {/* Info Box */}
               <div className="mt-10 bg-accent/10 border border-accent/20 rounded-lg p-6 max-w-2xl mx-auto text-center">
-                <h4 className="font-heading text-lg mb-2">Informazioni importanti</h4>
+                <h3 className="font-heading text-lg mb-2">Informazioni importanti</h3>
                 <ul className="text-sm text-text/70 space-y-2">
                   <li>• Rispondo a tutte le richieste entro 24 ore</li>
                   <li>• Possibile incontro preliminare per conoscersi</li>
