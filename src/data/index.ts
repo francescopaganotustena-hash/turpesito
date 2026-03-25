@@ -1,5 +1,5 @@
-import heroMain from '../assets/hero-main.png';
-import bioImage from '../assets/site-photos/bio.jpg';
+import heroMain from '../../Turpe2.png';
+import bioImage from '../assets/gallery/Backstage/WhatsApp Image 2026-03-20 at 00.15.02 (7).jpeg';
 import track1Cover from '../assets/site-photos/track-1.jpg';
 import track2Cover from '../assets/site-photos/track-2.jpg';
 import track3Cover from '../assets/site-photos/track-3.jpg';
@@ -28,11 +28,11 @@ const mapGalleryCategory = (path: string): string => {
 };
 
 export const siteConfig = {
-  name: "Gianluca Scala",
+  name: "Giangi Sax",
   tagline: "Voce che emoziona, performance che restano",
   subtitle: "Cantante e Musicista Professionista",
   enableHeroAnimation: true,
-  description: "Un'esperienza musicale di alto livello per matrimoni, eventi aziendali, serate private e live performance. Gianluca Scala porta sul palco anni di esperienza, una voce inconfondibile e un repertorio che spazia dal jazz al pop, dalla musica italiana ai classici internazionali.",
+  description: "Un'esperienza musicale di alto livello per matrimoni, eventi aziendali, serate private e live performance. Giangi Sax porta sul palco anni di esperienza, una voce inconfondibile e un repertorio che spazia dal jazz al pop, dalla musica italiana ai classici internazionali.",
   bookingTitle: "Richiedi una data",
   bookingSubtitle: "Contattami per il tuo evento",
   email: "",
@@ -52,7 +52,7 @@ export const siteConfig = {
 };
 
 export const biography = {
-  intro: "Ciao, mi chiamo Gianluca. Ho iniziato a suonare da ragazzino, per un DNA familiare che mi spingeva, in maniera appassionata, verso gli strumenti musicali. Ben presto, l'accompagnamento armonico della chitarra e della tastiera è diventato un vuoto da colmare con la melodia... e quale modo più immediato, se non la voce? Da allora, la musica è diventata un'urgenza comunicativa: trasmettere la mia passione al pubblico, per condividerne la gioia e il divertimento! Eh sì, perché ancora oggi, dopo migliaia di eventi e serate, riesco ancora a divertirmi con il mio pubblico!",
+  intro: "Ciao mi chiamo Gianluca. Ho iniziato a suonare da ragazzino, per un DNA familiare che mi spingeva, in maniera appassionata, verso gli strumenti musicali. Ben presto, l'accompagnamento armonico della chitarra e della tastiera è diventato un vuoto da colmare con la melodia... e quale modo più immediato, se non la voce? Da allora, la musica è diventata un'urgenza comunicativa: trasmettere la mia passione al pubblico, per condividerne la gioia e il divertimento! Eh sì, perché ancora oggi, dopo migliaia di eventi e serate, riesco ancora a divertirmi con il mio pubblico!",
   
   paragraphs: [],
   
@@ -68,7 +68,7 @@ export const tracks = [
   {
     id: 1,
     title: "Estate",
-    artist: "Gianluca Scala",
+    artist: "Giangi Sax",
     duration: "3:45",
     category: "Singolo",
     year: 2024,
@@ -79,7 +79,7 @@ export const tracks = [
   {
     id: 2,
     title: "Mi riconosci",
-    artist: "Gianluca Scala",
+    artist: "Giangi Sax",
     duration: "4:12",
     category: "Singolo",
     year: 2023,
@@ -90,7 +90,7 @@ export const tracks = [
   {
     id: 3,
     title: "Notte di Luna",
-    artist: "Gianluca Scala",
+    artist: "Giangi Sax",
     duration: "3:58",
     category: "Album",
     year: 2023,
@@ -101,7 +101,7 @@ export const tracks = [
   {
     id: 4,
     title: "Parole al Vento",
-    artist: "Gianluca Scala",
+    artist: "Giangi Sax",
     duration: "4:30",
     category: "Singolo",
     year: 2022,
@@ -112,7 +112,7 @@ export const tracks = [
   {
     id: 5,
     title: "Ricominciamo",
-    artist: "Gianluca Scala",
+    artist: "Giangi Sax",
     duration: "3:22",
     category: "Singolo",
     year: 2022,

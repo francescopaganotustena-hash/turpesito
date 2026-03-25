@@ -5,6 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "brand:apply": "bash scripts/brand-switch.sh apply",
+    "brand:rollback": "bash scripts/brand-switch.sh rollback",
+    "hero:apply": "bash scripts/hero-image-switch.sh apply",
+    "hero:rollback": "bash scripts/hero-image-switch.sh rollback",
     "prebuild": "node scripts/generate-sitemap.mjs",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

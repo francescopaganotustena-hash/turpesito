@@ -1,6 +1,6 @@
-# Gianluca Scala - Sito Web Ufficiale
+# Giangi Sax - Sito Web Ufficiale
 
-Sito promozionale per Gianluca Scala, cantante e musicista professionista.
+Sito promozionale per Giangi Sax, cantante e musicista professionista.
 Questo README descrive lo stato reale del progetto e va usato come riferimento operativo per i prossimi step.
 
 ## Stato Attuale (baseline di lavoro)
@@ -8,7 +8,7 @@ Questo README descrive lo stato reale del progetto e va usato come riferimento o
 - Stack stabile: React + TypeScript + Vite + Tailwind CSS.
 - Deploy: Vercel (`https://gianlucascala.vercel.app`).
 - Router: `BrowserRouter` (URL puliti SEO-friendly).
-- Strategia rollback: rimossa dal progetto (niente feature flag runtime, niente script di profilo rollback).
+- Strategia rollback: disponibile via script `npm run brand:rollback`.
 - Comportamento attuale fissato direttamente nel codice.
 
 ## Stato Lavoro (aggiornato)
@@ -18,7 +18,7 @@ Ultimi interventi consolidati nel codice:
 - Rimossi tutti i riferimenti geografici/zone dal sito pubblico.
 - Rimossa la sezione \"Video e Live\" dalla homepage.
 - Riposizionato il bottone hero \"Richiedi una data\" piu in basso, come da richiesta UX.
-- Rimossa infrastruttura rollback (feature flags, script e documenti collegati).
+- Reintrodotto rollback del naming tramite script `scripts/brand-switch.sh`.
 - README riallineato alla struttura reale corrente del progetto.
 
 ### Ultime modifiche salvate (2026-03-22)
