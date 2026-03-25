@@ -1,4 +1,4 @@
-import heroMain from '../../Turpe2.png';
+import heroMain from '../assets/gallery/Backstage/WhatsApp Image 2026-03-19 at 23.53.44 (3).jpeg';
 import bioImage from '../assets/gallery/Backstage/WhatsApp Image 2026-03-20 at 00.15.02 (7).jpeg';
 import track1Cover from '../assets/site-photos/track-1.jpg';
 import track2Cover from '../assets/site-photos/track-2.jpg';

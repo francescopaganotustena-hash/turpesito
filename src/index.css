@@ -69,10 +69,19 @@
 
 @keyframes heroBackgroundDrift {
   0% {
-    transform: scale(1) translate3d(-10px, -2px, 0);
+    transform: scale(1.03) translate3d(-22px, -10px, 0);
   }
   100% {
-    transform: scale(1.02) translate3d(2px, 0, 0);
+    transform: scale(1.07) translate3d(14px, 6px, 0);
+  }
+}
+
+@keyframes heroBackgroundDriftMobile {
+  0% {
+    transform: scale(1.06) translate3d(-14px, -18px, 0);
+  }
+  100% {
+    transform: scale(1.1) translate3d(10px, 10px, 0);
   }
 }
 
@@ -100,12 +109,12 @@
 }
 
 .hero-bg-position {
-  background-position: 82% 0% !important;
+  background-position: 82% 6% !important;
 }
 
 .hero-bg-animated {
-  animation: heroBackgroundDrift 17s ease-in-out infinite alternate;
-  transform-origin: 82% 8%;
+  animation: heroBackgroundDrift 16s ease-in-out infinite alternate;
+  transform-origin: 80% 10%;
   will-change: transform;
 }
 
@@ -188,7 +197,12 @@
 
 @media (max-width: 768px) {
   .hero-bg-position {
-    background-position: 52% 6% !important;
+    background-position: 52% 12% !important;
+  }
+
+  .hero-bg-animated {
+    animation: heroBackgroundDriftMobile 14s ease-in-out infinite alternate;
+    transform-origin: 56% 14%;
   }
 
   .cta-bg-position {

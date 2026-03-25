@@ -13,7 +13,8 @@ export function HeroSection() {
         className={`absolute inset-0 bg-cover bg-no-repeat hero-bg-position ${siteConfig.enableHeroAnimation ? 'hero-bg-animated' : ''}`}
         style={{ backgroundImage: `url("${heroImages.hero}")` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/50 to-primary" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/70 via-primary/28 to-primary/78" />
+        <div className="absolute inset-x-0 top-0 h-44 bg-gradient-to-b from-primary/90 via-primary/65 to-transparent" />
       </div>
 
       {/* Content */}
@@ -36,8 +37,8 @@ export function HeroSection() {
             )}
           </h1>
 
-          <p className="text-xl sm:text-2xl md:text-3xl text-text-muted max-w-2xl mx-auto mb-10 font-light [margin-top:5cm]">
-            La musuca per i tuoi eventi
+          <p className="text-xl sm:text-2xl md:text-3xl text-text max-w-2xl mx-auto mb-10 font-medium [margin-top:5cm] [text-shadow:0_2px_10px_rgba(0,0,0,0.65)]">
+            La musica per i tuoi eventi
           </p>
 
           <div className="mt-56 sm:mt-60 md:mt-64 flex flex-col sm:flex-row gap-4 justify-center w-full px-4">
