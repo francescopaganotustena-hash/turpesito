@@ -37,7 +37,7 @@ export function HeroSection() {
             )}
           </h1>
 
-          <p className="text-xl sm:text-2xl md:text-3xl text-text max-w-2xl mx-auto mb-10 font-medium [margin-top:5cm] [text-shadow:0_2px_10px_rgba(0,0,0,0.65)]">
+          <p className="text-xl sm:text-2xl md:text-3xl text-text max-w-2xl mx-auto mb-10 font-medium [margin-top:10cm] [text-shadow:0_2px_10px_rgba(0,0,0,0.65)]">
             La musica per i tuoi eventi
           </p>
 
