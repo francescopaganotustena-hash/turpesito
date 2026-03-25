@@ -36,6 +36,10 @@ export function HeroSection() {
             )}
           </h1>
 
+          <p className="text-xl sm:text-2xl md:text-3xl text-text-muted max-w-2xl mx-auto mb-10 font-light [margin-top:5cm]">
+            La musuca per i tuoi eventi
+          </p>
+
           <div className="mt-56 sm:mt-60 md:mt-64 flex flex-col sm:flex-row gap-4 justify-center w-full px-4">
             <Link
               to="/contatti"
