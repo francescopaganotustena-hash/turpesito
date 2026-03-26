@@ -22,18 +22,18 @@ function Test-PortListening {
   }
 }
 
-function Resolve-NpmCmd {
-  $npmCmd = (Get-Command npm.cmd -ErrorAction SilentlyContinue).Source
-  if ($npmCmd) {
-    return $npmCmd
+function Resolve-NodeExe {
+  $nodeExe = (Get-Command node.exe -ErrorAction SilentlyContinue).Source
+  if ($nodeExe) {
+    return $nodeExe
   }
 
-  $fallback = "C:\Program Files\nodejs\npm.cmd"
+  $fallback = "C:\Program Files\nodejs\node.exe"
   if (Test-Path $fallback) {
     return $fallback
   }
 
-  throw "npm.cmd non trovato. Installa Node.js LTS e riapri PowerShell."
+  throw "node.exe non trovato. Installa Node.js LTS e riapri PowerShell."
 }
 
 if (Test-Path $pidFile) {
@@ -52,14 +52,27 @@ if (Test-PortListening -TestPort $Port) {
   throw "La porta $Port e' gia' occupata. Ferma il processo in ascolto o usa un'altra porta."
 }
 
-$npmCmdPath = Resolve-NpmCmd
+$nodeExePath = Resolve-NodeExe
+$viteCliPath = Join-Path $rootDir "node_modules/vite/bin/vite.js"
+
+if (-not (Test-Path $viteCliPath)) {
+  throw "Vite non trovato in node_modules. Esegui prima: npm install"
+}
 
 if ($env:Path -notlike "*C:\Program Files\nodejs*") {
   $env:Path = "C:\Program Files\nodejs;$env:Path"
 }
 
-$devArgs = "run dev -- --host $BindHost --port $Port --strictPort"
-$proc = Start-Process -FilePath $npmCmdPath -ArgumentList $devArgs -WorkingDirectory $rootDir -RedirectStandardOutput $outLog -RedirectStandardError $errLog -PassThru
+$devArgs = @(
+  "`"$viteCliPath`""
+  "--host"
+  $BindHost
+  "--port"
+  "$Port"
+  "--strictPort"
+)
+
+$proc = Start-Process -FilePath $nodeExePath -ArgumentList $devArgs -WorkingDirectory $rootDir -RedirectStandardOutput $outLog -RedirectStandardError $errLog -WindowStyle Hidden -PassThru
 
 Set-Content -Path $pidFile -Value "$($proc.Id)" -Encoding ascii
 
