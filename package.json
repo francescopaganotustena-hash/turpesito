@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:start:win": "powershell -ExecutionPolicy Bypass -File ./scripts/avvia-sito.ps1",
+    "dev:stop:win": "powershell -ExecutionPolicy Bypass -File ./scripts/spegni-sito.ps1",
     "brand:apply": "bash scripts/brand-switch.sh apply",
     "brand:rollback": "bash scripts/brand-switch.sh rollback",
     "hero:apply": "bash scripts/hero-image-switch.sh apply",
